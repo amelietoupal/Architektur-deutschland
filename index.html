@@ -13,37 +13,21 @@ html,body{
   font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;
   overflow:hidden;-webkit-font-smoothing:antialiased;user-select:none;
 }
-
-/* ─── FARBEN
-  chalk  #f0ebe2   hell
-  ink    #0f0e0c   dunkel
-  char   #1e1c18   dunkel-surface
-  ember  #e8572a   orange-rot
-  gold   #d4a843   gold
-  teal   #1a8c78   türkis
-  lilac  #7b6cad   lila
-*/
-
 #prog{position:fixed;top:0;left:0;height:4px;z-index:9999;background:linear-gradient(90deg,#e8572a,#d4a843);width:0%;transition:width .4s cubic-bezier(.4,0,.2,1)}
-
 #htl{position:fixed;top:16px;left:20px;z-index:9998;font-family:'Courier New',monospace;font-size:10px;letter-spacing:.1em;color:rgba(240,235,226,.3);cursor:pointer;transition:color .2s}
 #htl:hover,#htl.on{color:#e8572a}
 #htr{position:fixed;top:16px;right:20px;z-index:9998;font-family:'Courier New',monospace;font-size:10px;letter-spacing:.1em;color:rgba(240,235,226,.22);pointer-events:none}
 #hbl{position:fixed;bottom:18px;left:20px;z-index:9998;display:flex;gap:8px}
 .hb{background:none;border:1px solid rgba(240,235,226,.15);color:rgba(240,235,226,.28);font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;padding:6px 14px;cursor:pointer;transition:all .2s;text-transform:uppercase}
 .hb:hover{border-color:#e8572a;color:#e8572a}
-
 #notes{position:fixed;bottom:0;left:0;right:0;background:#1e1c18;border-top:1px solid rgba(232,87,42,.2);padding:14px 24px 20px;font-family:'Courier New',monospace;font-size:11px;line-height:1.75;color:#d4a843;z-index:9997;transform:translateY(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);max-height:180px;overflow-y:auto}
 #notes.open{transform:translateY(0)}
 #nl{font-size:8px;letter-spacing:.25em;color:rgba(212,168,67,.35);margin-bottom:6px;text-transform:uppercase}
-
 #deck{position:relative;width:100%;height:100dvh;height:-webkit-fill-available;overflow:hidden}
-
 .s{position:absolute;inset:0;display:flex;flex-direction:column;opacity:0;pointer-events:none;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-backface-visibility:hidden;backface-visibility:hidden;transition:opacity .5s cubic-bezier(.4,0,.2,1),transform .5s cubic-bezier(.4,0,.2,1)}
 .s.active{opacity:1;pointer-events:auto}
 .s.out{opacity:0;-webkit-transform:translate3d(-65px,0,0);transform:translate3d(-65px,0,0)}
 .s.inn{opacity:0;-webkit-transform:translate3d(65px,0,0);transform:translate3d(65px,0,0)}
-
 .s.active .a1{animation:up .6s .04s cubic-bezier(.4,0,.2,1) both}
 .s.active .a2{animation:up .6s .13s cubic-bezier(.4,0,.2,1) both}
 .s.active .a3{animation:up .6s .22s cubic-bezier(.4,0,.2,1) both}
@@ -55,33 +39,12 @@ html,body{
 @-webkit-keyframes up{from{opacity:0;-webkit-transform:translateY(26px)}to{opacity:1;-webkit-transform:translateY(0)}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 @keyframes scl{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:scale(1)}}
-
-/* ── PHOTO BOX ── */
 .ph{width:100%;height:100%;object-fit:cover;display:block}
-
-/* Image placeholder — clearly labelled */
-.iph{
-  width:100%;height:100%;
-  background:#1e1c18;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  gap:14px;position:relative;
-  border:1px dashed rgba(232,87,42,.25);
-}
-.iph-icon{width:52px;height:52px;border:1px solid rgba(232,87,42,.3);display:flex;align-items:center;justify-content:center}
-.iph-name{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.18em;color:#e8572a;text-transform:uppercase;text-align:center;padding:0 20px;font-weight:700}
-.iph-file{font-family:'Courier New',monospace;font-size:8px;letter-spacing:.12em;color:rgba(240,235,226,.2);text-transform:uppercase;text-align:center;padding:0 20px}
-.iph-tip{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-family:'Courier New',monospace;font-size:7px;letter-spacing:.15em;color:rgba(232,87,42,.3);text-transform:uppercase}
-
-/* caption strip */
 .cap{position:absolute;bottom:0;left:0;right:0;padding:10px 18px;background:linear-gradient(transparent,rgba(15,14,12,.75));font-family:'Courier New',monospace;font-size:8px;letter-spacing:.14em;color:rgba(240,235,226,.5);text-transform:uppercase}
 
-/* ═══════════════════════════════
-   01 TITLE
-═══════════════════════════════ */
+/* ── 01 TITLE ── */
 .s1{background:#0f0e0c}
 .s1-bg{position:absolute;inset:0}
-/* IMAGE PLACEHOLDER: Titelbild */
 .s1-grad{position:absolute;inset:0;background:linear-gradient(108deg,#0f0e0c 40%,transparent 75%)}
 .s1-block{position:absolute;bottom:0;right:0;width:clamp(150px,20vw,240px);height:clamp(150px,20vw,240px);background:#e8572a;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px}
 .s1-block-yr{font-size:clamp(40px,6vw,76px);font-weight:900;color:#0f0e0c;line-height:1;letter-spacing:-.04em}
@@ -93,13 +56,11 @@ html,body{
 .s1-rule{width:50px;height:3px;background:#e8572a;margin:26px 0}
 .s1-names{font-size:14px;color:rgba(240,235,226,.45);letter-spacing:.04em}
 
-/* ═══════════════════════════════
-   02 ELBPHILHARMONIE — 3-panel
-═══════════════════════════════ */
+/* ── 02 ELBPHILHARMONIE ── */
 .s2{flex-direction:row;background:#0f0e0c}
 .s2-l{width:46%;display:flex;flex-direction:column;justify-content:center;padding:44px 4vw 44px 8vw;background:#1e1c18;border-right:1px solid rgba(232,87,42,.12)}
 .s2-r{flex:1;display:grid;grid-template-rows:60% 40%;gap:3px;background:#0f0e0c}
-.s2-ph1,.s2-ph2{position:relative;overflow:hidden}
+.s2-ph{position:relative;overflow:hidden;background:#1a1816}
 .s2-ey{font-family:'Courier New',monospace;font-size:9px;letter-spacing:.25em;color:#e8572a;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px}
 .s2-ey::before{content:'★';font-size:9px}
 .s2-h{font-size:clamp(30px,4.2vw,58px);font-weight:900;color:#f0ebe2;line-height:.96;letter-spacing:-.03em;margin-bottom:16px}
@@ -114,11 +75,8 @@ html,body{
 .wp{stroke-dasharray:800;stroke-dashoffset:800}
 .wp.go{animation:dw 2.2s cubic-bezier(.4,0,.2,1) forwards;-webkit-animation:dw 2.2s cubic-bezier(.4,0,.2,1) forwards}
 @keyframes dw{to{stroke-dashoffset:0}}
-@-webkit-keyframes dw{to{stroke-dashoffset:0}}
 
-/* ═══════════════════════════════
-   03 BAUHAUS — ember panel left
-═══════════════════════════════ */
+/* ── 03 BAUHAUS BREAK ── */
 .s3{flex-direction:row;background:#f0ebe2;color:#0f0e0c}
 .s3-l{width:50%;display:flex;flex-direction:column;justify-content:flex-end;padding:0 5vw 8vh 8vw;background:#e8572a;position:relative;overflow:hidden}
 .s3-bg-ch{position:absolute;font-size:clamp(180px,28vw,340px);font-weight:900;color:rgba(15,14,12,.1);line-height:.85;bottom:-30px;left:-15px;letter-spacing:-.05em;pointer-events:none}
@@ -126,13 +84,11 @@ html,body{
 .s3-h{font-size:clamp(38px,6vw,80px);font-weight:900;color:#0f0e0c;line-height:.96;letter-spacing:-.03em;position:relative;z-index:1}
 .s3-h em{font-style:italic}
 .s3-sub{margin-top:14px;font-size:13px;color:rgba(15,14,12,.55);line-height:1.6;max-width:300px;font-family:Georgia,serif;position:relative;z-index:1}
-.s3-r{flex:1;position:relative;overflow:hidden}
+.s3-r{flex:1;position:relative;overflow:hidden;background:#e8e0d0}
 
-/* ═══════════════════════════════
-   04 BAUHAUS INHALT — light
-═══════════════════════════════ */
+/* ── 04 BAUHAUS INHALT ── */
 .s4{flex-direction:row;background:#f0ebe2;color:#0f0e0c}
-.s4-img{width:52%;position:relative;overflow:hidden}
+.s4-img{width:52%;position:relative;overflow:hidden;background:#e8e0d0}
 .s4-txt{flex:1;display:flex;flex-direction:column;justify-content:center;padding:50px 6vw 50px 5vw;position:relative}
 .s4-accent{position:absolute;left:0;top:0;bottom:0;width:4px;background:#e8572a}
 .s4-ey{font-family:'Courier New',monospace;font-size:9px;letter-spacing:.25em;color:#e8572a;text-transform:uppercase;margin-bottom:16px}
@@ -144,11 +100,9 @@ html,body{
 .s4-list li::before{content:'';width:8px;height:8px;background:#e8572a;border-radius:50%;margin-top:5px;flex-shrink:0}
 .s4-list li strong{color:#0f0e0c;font-weight:700}
 
-/* ═══════════════════════════════
-   05 BMW WELT — stacked
-═══════════════════════════════ */
+/* ── 05 BMW/MERCEDES STACKED ── */
 .s5{flex-direction:column;background:#0f0e0c}
-.s5-img{flex:1;position:relative;overflow:hidden}
+.s5-img{flex:1;position:relative;overflow:hidden;background:#1a1816}
 .s5-img-ov{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(15,14,12,.95) 100%)}
 .s5-badge{position:absolute;top:24px;left:32px;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.22em;color:rgba(240,235,226,.5);text-transform:uppercase;background:rgba(15,14,12,.5);padding:6px 12px}
 .s5-bottom{height:40%;display:flex;background:#0f0e0c}
@@ -160,13 +114,11 @@ html,body{
 .s5-cn{font-size:clamp(16px,2vw,23px);font-weight:900;color:#f0ebe2;margin-bottom:6px;letter-spacing:-.01em}
 .s5-cs{font-size:12px;color:rgba(240,235,226,.38);font-style:italic;font-family:Georgia,serif;line-height:1.6}
 
-/* ═══════════════════════════════
-   06 BERLIN 3 CARDS — dark photo
-═══════════════════════════════ */
+/* ── 06 BERLIN 3 CARDS ── */
 .s6{flex-direction:row;background:#0f0e0c;gap:3px}
-.s6c{flex:1;position:relative;overflow:hidden}
-.s6c img,.s6c .iph{opacity:.55;transition:opacity .3s}
-.s6c:hover img,.s6c:hover .iph{opacity:.75}
+.s6c{flex:1;position:relative;overflow:hidden;background:#1a1816}
+.s6c img{width:100%;height:100%;object-fit:cover;display:block;opacity:.55;transition:opacity .3s}
+.s6c:hover img{opacity:.72}
 .s6c-grad{position:absolute;inset:0;background:linear-gradient(175deg,transparent 30%,rgba(15,14,12,.94) 100%)}
 .s6c-num{position:absolute;top:20px;right:18px;font-size:clamp(55px,7vw,88px);font-weight:900;color:transparent;letter-spacing:-.04em;line-height:1}
 .s6c:nth-child(1) .s6c-num{-webkit-text-stroke:1px rgba(232,87,42,.22)}
@@ -180,11 +132,9 @@ html,body{
 .s6c-title{font-size:clamp(14px,1.7vw,22px);font-weight:900;color:#f0ebe2;line-height:1.15;margin-bottom:5px;letter-spacing:-.01em}
 .s6c-sub{font-size:11px;color:rgba(240,235,226,.42);font-style:italic;font-family:Georgia,serif;line-height:1.5}
 
-/* ═══════════════════════════════
-   07 OZEANEUM — teal accent
-═══════════════════════════════ */
+/* ── 07 OZEANEUM ── */
 .s7{flex-direction:row;background:#f0ebe2;color:#0f0e0c}
-.s7-img{width:54%;position:relative;overflow:hidden}
+.s7-img{width:54%;position:relative;overflow:hidden;background:#e8e0d0}
 .s7-txt{flex:1;display:flex;flex-direction:column;justify-content:center;padding:50px 6vw 50px 5vw;position:relative}
 .s7-accent{position:absolute;left:0;top:0;bottom:0;width:4px;background:#1a8c78}
 .s7-ey{font-family:'Courier New',monospace;font-size:9px;letter-spacing:.25em;color:#1a8c78;text-transform:uppercase;margin-bottom:16px}
@@ -196,11 +146,9 @@ html,body{
 .s7-list li::before{content:'';width:8px;height:8px;background:#1a8c78;border-radius:50%;margin-top:5px;flex-shrink:0}
 .s7-list li strong{color:#0f0e0c;font-weight:700}
 
-/* ═══════════════════════════════
-   08 MEDIENHAFEN — gold panel
-═══════════════════════════════ */
+/* ── 08 MEDIENHAFEN ── */
 .s8{flex-direction:row;background:#d4a843}
-.s8-img{width:58%;position:relative;overflow:hidden}
+.s8-img{width:58%;position:relative;overflow:hidden;background:#c09830}
 .s8-txt{flex:1;display:flex;flex-direction:column;justify-content:center;padding:50px 5vw;background:#d4a843}
 .s8-ey{font-family:'Courier New',monospace;font-size:9px;letter-spacing:.25em;color:rgba(15,14,12,.4);text-transform:uppercase;margin-bottom:16px}
 .s8-h{font-size:clamp(26px,3.5vw,48px);font-weight:900;color:#0f0e0c;line-height:1;letter-spacing:-.025em;margin-bottom:16px}
@@ -211,11 +159,9 @@ html,body{
 .s8-list li::before{content:'';width:8px;height:8px;background:rgba(15,14,12,.3);border-radius:50%;margin-top:5px;flex-shrink:0}
 .s8-list li strong{color:#0f0e0c;font-weight:700}
 
-/* ═══════════════════════════════
-   09 VÖLKLINGER HÜTTE — dark
-═══════════════════════════════ */
+/* ── 09 VÖLKLINGER HÜTTE ── */
 .s9{flex-direction:row;background:#0f0e0c}
-.s9-img{width:55%;position:relative;overflow:hidden}
+.s9-img{width:55%;position:relative;overflow:hidden;background:#1a1816}
 .s9-txt{flex:1;display:flex;flex-direction:column;justify-content:center;padding:50px 6vw 50px 5vw;border-left:1px solid rgba(123,108,173,.2)}
 .s9-ey{font-family:'Courier New',monospace;font-size:9px;letter-spacing:.25em;color:#7b6cad;text-transform:uppercase;margin-bottom:16px}
 .s9-h{font-size:clamp(26px,3.8vw,50px);font-weight:900;color:#f0ebe2;line-height:1;letter-spacing:-.025em;margin-bottom:14px}
@@ -226,11 +172,9 @@ html,body{
 .s9-list li::before{content:'';width:8px;height:8px;background:#7b6cad;border-radius:50%;margin-top:5px;flex-shrink:0}
 .s9-list li strong{color:#f0ebe2;font-weight:700}
 
-/* ═══════════════════════════════
-   10 END
-═══════════════════════════════ */
+/* ── 10 END ── */
 .s10{background:#0f0e0c;position:relative;align-items:center;justify-content:center;text-align:center}
-.s10-bg{position:absolute;inset:0}
+.s10-bg{position:absolute;inset:0;background:#1a1816}
 .s10-grad{position:absolute;inset:0;background:rgba(15,14,12,.72)}
 .s10-stripe{position:absolute;top:0;left:0;bottom:0;width:5px;background:linear-gradient(180deg,#e8572a,#d4a843,#1a8c78)}
 .s10-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;padding:0 8vw}
@@ -255,19 +199,10 @@ html,body{
 
 <div id="deck">
 
-<!-- ════════════════════════════════════════
-  01 — TITLE
-════════════════════════════════════════ -->
-<div class="s s1 active"
-  data-n="Guten Tag! Wir heißen Amelie und Barbora. Heute sprechen wir über moderne Architektur in Deutschland. Wir zeigen euch die interessantesten Gebäude.">
+<!-- 01 TITLE -->
+<div class="s s1 active" data-n="Guten Tag! Wir heißen Amelie und Barbora. Heute sprechen wir über moderne Architektur in Deutschland — die interessantesten Gebäude aus verschiedenen Bundesländern.">
   <div class="s1-bg af">
-    <!-- IMAGE 1: Titelbild — z.B. Elbphilharmonie von außen oder Skyline -->
-    <div class="iph">
-      <div class="iph-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e8572a" stroke-width="1.2"><rect x="3" y="3" width="18" height="18"/><path d="M3 9l4-4 4 4 4-6 6 9"/><circle cx="8.5" cy="7.5" r="1.5"/></svg></div>
-      <div class="iph-name">Titelbild</div>
-      <div class="iph-file">Elbphilharmonie von außen — oder Skyline Hamburg</div>
-      <div class="iph-tip">📁 Datei: 01_titelbild.jpg</div>
-    </div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Elbphilharmonie_Hamburg_2017.jpg/1280px-Elbphilharmonie_Hamburg_2017.jpg" class="ph" alt="" onerror="this.style.opacity=0">
   </div>
   <div class="s1-grad"></div>
   <div class="s1-content">
@@ -282,11 +217,8 @@ html,body{
   </div>
 </div>
 
-<!-- ════════════════════════════════════════
-  02 — ELBPHILHARMONIE (Hamburg)
-════════════════════════════════════════ -->
-<div class="s s2"
-  data-n="Die Elbphilharmonie in Hamburg ist unser erstes und wichtigstes Gebäude. Die Architekten Herzog und de Meuron kommen aus der Schweiz. Das Dach sieht aus wie Wellen des Flusses Elbe. Im Inneren gibt es 10.000 Gipsplatten — sie sorgen für perfekte Akustik. Das Gebäude wurde 2017 eröffnet und hat 866 Millionen Euro gekostet — geplant waren nur 77 Millionen!">
+<!-- 02 ELBPHILHARMONIE -->
+<div class="s s2" data-n="Die Elbphilharmonie in Hamburg ist unser erstes und wichtigstes Gebäude. Die Architekten Herzog und de Meuron kommen aus der Schweiz. Das Dach sieht aus wie Wellen des Flusses Elbe. Im Inneren gibt es 10.000 Gipsplatten für perfekte Akustik. Eröffnet 2017 — geplant waren 77 Millionen Euro, am Ende waren es 866 Millionen!">
   <div class="s2-l">
     <div class="s2-ey a1">Hamburg · 2017</div>
     <div class="s2-h a2">Elb­phil­<br>harmonie</div>
@@ -304,34 +236,21 @@ html,body{
     </div>
   </div>
   <div class="s2-r af">
-    <div class="s2-ph1">
-      <!-- IMAGE 2A: Elbphilharmonie von außen — Fassade mit Wellen -->
-      <div class="iph">
-        <div class="iph-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e8572a" stroke-width="1.2"><rect x="3" y="3" width="18" height="18"/><path d="M3 9l4-4 4 4 4-6 6 9"/></svg></div>
-        <div class="iph-name">Außenansicht</div>
-        <div class="iph-file">Elbphilharmonie Fassade mit Wellendach</div>
-        <div class="iph-tip">📁 02a_elb_aussen.jpg</div>
-      </div>
-      <div class="cap">Außenansicht · Hamburg</div>
+    <div class="s2-ph">
+      <!-- FOTO A: Elbphilharmonie Außenansicht -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Elbphilharmonie_Hamburg_2017.jpg/1280px-Elbphilharmonie_Hamburg_2017.jpg" class="ph" alt="Elbphilharmonie" onerror="this.style.opacity=0">
+      <div class="cap">Außenansicht · Hamburg · Glas-Wellendach</div>
     </div>
-    <div class="s2-ph2">
-      <!-- IMAGE 2B: Elbphilharmonie Innenraum — weißer Konzertsaal -->
-      <div class="iph">
-        <div class="iph-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e8572a" stroke-width="1.2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg></div>
-        <div class="iph-name">Innenraum</div>
-        <div class="iph-file">Großer Konzertsaal — weiße Gipsplatten</div>
-        <div class="iph-tip">📁 02b_elb_innen.jpg</div>
-      </div>
+    <div class="s2-ph">
+      <!-- FOTO B: Elbphilharmonie Innenraum -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Elbphilharmonie_Innenraum_Gro%C3%9Fer_Saal.jpg/1280px-Elbphilharmonie_Innenraum_Gro%C3%9Fer_Saal.jpg" class="ph" alt="Innenraum" onerror="this.style.opacity=0">
       <div class="cap">Innenraum · Großer Saal · 10.000 Gipsplatten</div>
     </div>
   </div>
 </div>
 
-<!-- ════════════════════════════════════════
-  03 — BAUHAUS (Kapitel-Break)
-════════════════════════════════════════ -->
-<div class="s s3"
-  data-n="Jetzt sprechen wir über das Bauhaus. Das Bauhaus wurde 1919 in Weimar gegründet — nicht in Berlin! Es hat das moderne Design erfunden. Das Motto: Form follows function — ein Gebäude muss zuerst praktisch sein.">
+<!-- 03 BAUHAUS BREAK -->
+<div class="s s3" data-n="Jetzt kommen wir zum Bauhaus. Das Bauhaus wurde 1919 in Weimar gegründet — nicht in Berlin! Es hat das moderne Design erfunden. Das Motto: Form follows function — ein Gebäude muss zuerst praktisch sein.">
   <div class="s3-l">
     <div class="s3-bg-ch">B</div>
     <div class="s3-num a1">Kapitel 02</div>
@@ -339,31 +258,18 @@ html,body{
     <div class="s3-sub a3">„Form follows function" — die Schule, die die Welt verändert hat. Gegründet 1919 in Weimar.</div>
   </div>
   <div class="s3-r asc">
-    <!-- IMAGE 3: Bauhaus Dessau — Hauptgebäude von außen -->
-    <div class="iph" style="border:none">
-      <div class="iph-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e8572a" stroke-width="1.2"><rect x="3" y="3" width="18" height="18"/><path d="M3 9l4-4 4 4 4-6 6 9"/></svg></div>
-      <div class="iph-name">Bauhaus Dessau</div>
-      <div class="iph-file">Hauptgebäude von außen — Glas und Stahl, 1925</div>
-      <div class="iph-tip">📁 03_bauhaus_dessau.jpg</div>
-    </div>
+    <!-- FOTO C: Bauhaus Dessau Hauptgebäude -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Bauhaus-Dessau_Hauptgeb%C3%A4ude.jpg/1280px-Bauhaus-Dessau_Hauptgeb%C3%A4ude.jpg" class="ph" alt="Bauhaus Dessau" onerror="this.style.opacity=0">
     <div class="cap">Bauhaus Dessau · Walter Gropius · 1925</div>
   </div>
 </div>
 
-<!-- ════════════════════════════════════════
-  04 — BAUHAUS Inhalt (light slide)
-════════════════════════════════════════ -->
-<div class="s s4"
-  data-n="Das Bauhaus wurde 1919 in Weimar gegründet — nicht in Berlin! Berühmte Lehrer waren Klee und Kandinsky. Das Motto: Form follows function. Heute ist das Bauhaus UNESCO-Welterbe.">
+<!-- 04 BAUHAUS INHALT -->
+<div class="s s4" data-n="Das Bauhaus wurde 1919 in Weimar gegründet — nicht in Berlin! Bekannte Lehrer waren Klee und Kandinsky. Das Motto: Form follows function. Heute ist das Bauhaus UNESCO-Welterbe.">
   <div class="s4-img asc">
-    <!-- IMAGE 4: Walter Gropius Porträt oder Innenraum Bauhaus -->
-    <div class="iph" style="border:none;background:#e8e0d0">
-      <div class="iph-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8a8070" stroke-width="1.2"><rect x="3" y="3" width="18" height="18"/><circle cx="9" cy="9" r="3"/><path d="M3 21l5-5 4 4 5-7 4 6"/></svg></div>
-      <div class="iph-name" style="color:#8a8070">Gropius / Innenraum</div>
-      <div class="iph-file" style="color:#a09070">Walter Gropius Porträt 1919 — oder Bauhaus Innenraum</div>
-      <div class="iph-tip" style="color:#c0b090">📁 04_bauhaus_inhalt.jpg</div>
-    </div>
-    <div class="cap" style="color:rgba(15,14,12,.35)">Walter Gropius — Gründer des Bauhauses</div>
+    <!-- FOTO D: Walter Gropius Porträt -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Walter_Gropius%2C_1919.jpg/640px-Walter_Gropius%2C_1919.jpg" class="ph" alt="Walter Gropius" onerror="this.parentElement.style.background='#e0d4c0'">
+    <div class="cap" style="color:rgba(15,14,12,.35)">Walter Gropius — Gründer des Bauhauses · 1919</div>
   </div>
   <div class="s4-txt">
     <div class="s4-accent"></div>
@@ -379,19 +285,11 @@ html,body{
   </div>
 </div>
 
-<!-- ════════════════════════════════════════
-  05 — BMW WELT + MERCEDES MUSEUM
-════════════════════════════════════════ -->
-<div class="s s5"
-  data-n="Zwei sehr besondere Gebäude für Autos. Die BMW Welt in München wurde 2007 gebaut — das Dach hat keine geraden Winkel, es sieht aus wie eine Wolke. Das Mercedes Museum in Stuttgart wurde 2006 gebaut — die Form ist wie eine DNA-Doppelhelix. Man geht spiralförmig durch 130 Jahre Geschichte.">
+<!-- 05 BMW + MERCEDES -->
+<div class="s s5" data-n="Zwei sehr besondere Gebäude für Autos. BMW Welt München 2007 — das Dach hat keine geraden Winkel, es sieht aus wie eine Wolke aus Stahl und Glas. Mercedes Museum Stuttgart 2006 — die Form ist wie eine DNA-Doppelhelix, man geht spiralförmig durch 130 Jahre Geschichte.">
   <div class="s5-img af">
-    <!-- IMAGE 5: BMW Welt München — Dach von außen -->
-    <div class="iph" style="border:none">
-      <div class="iph-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e8572a" stroke-width="1.2"><rect x="3" y="3" width="18" height="18"/><path d="M3 9l4-4 4 4 4-6 6 9"/></svg></div>
-      <div class="iph-name">BMW Welt München</div>
-      <div class="iph-file">Außenansicht — das besondere Dach aus Stahl und Glas</div>
-      <div class="iph-tip">📁 05_bmw_welt.jpg</div>
-    </div>
+    <!-- FOTO E: BMW Welt München -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/BMW_Welt_2009.jpg/1280px-BMW_Welt_2009.jpg" class="ph" alt="BMW Welt" onerror="this.style.opacity=0">
     <div class="s5-img-ov"></div>
     <div class="s5-badge">Bayern &amp; Baden-Württemberg</div>
   </div>
@@ -404,24 +302,16 @@ html,body{
     <div class="s5-col a3">
       <div class="s5-tag">Baden-Württemberg · 2006</div>
       <div class="s5-cn">Mercedes Museum Stuttgart</div>
-      <div class="s5-cs">Form wie eine DNA-Helix — man geht spiralförmig durch 130 Jahre Geschichte. UNStudio.</div>
+      <div class="s5-cs">Form wie eine DNA-Helix — spiralförmig durch 130 Jahre Geschichte. UNStudio.</div>
     </div>
   </div>
 </div>
 
-<!-- ════════════════════════════════════════
-  06 — BERLIN 3 KARTEN
-════════════════════════════════════════ -->
-<div class="s s6"
-  data-n="Berlin hat drei sehr interessante Gebäude. Die Berliner Philharmonie von 1963 — zum ersten Mal sitzt das Publikum rund um das Orchester. Das Jüdische Museum von 2001 — die Zickzack-Form zeigt Schmerz und Geschichte. Das Humboldt Forum von 2021 — ein altes Schloss mit modernem Inneren.">
+<!-- 06 BERLIN -->
+<div class="s s6" data-n="Berlin hat drei sehr interessante Gebäude. Berliner Philharmonie 1963 — zum ersten Mal sitzt das Publikum rund um das Orchester. Jüdisches Museum 2001 — Zickzack-Form zeigt Schmerz und Geschichte. Humboldt Forum 2021 — altes Schloss mit modernem Inneren.">
   <div class="s6c af">
-    <!-- IMAGE 6A: Berliner Philharmonie — Außenansicht -->
-    <div class="iph" style="border:none">
-      <div class="iph-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e8572a" stroke-width="1.2"><rect x="3" y="3" width="18" height="18"/><path d="M3 9l4-4 4 4 4-6 6 9"/></svg></div>
-      <div class="iph-name" style="font-size:9px">Berliner Philharmonie</div>
-      <div class="iph-file" style="font-size:7px">Außenansicht — goldene Fassade</div>
-      <div class="iph-tip">📁 06a_philharmonie.jpg</div>
-    </div>
+    <!-- FOTO F: Berliner Philharmonie -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Berliner_Philharmonie_2.jpg/1280px-Berliner_Philharmonie_2.jpg" alt="" onerror="this.style.opacity=0">
     <div class="s6c-grad"></div>
     <div class="s6c-num">01</div>
     <div class="s6c-body">
@@ -431,13 +321,8 @@ html,body{
     </div>
   </div>
   <div class="s6c af">
-    <!-- IMAGE 6B: Jüdisches Museum Berlin — Zickzack-Fassade -->
-    <div class="iph" style="border:none">
-      <div class="iph-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a8c78" stroke-width="1.2"><rect x="3" y="3" width="18" height="18"/><path d="M3 9l4-4 4 4 4-6 6 9"/></svg></div>
-      <div class="iph-name" style="font-size:9px;color:#1a8c78">Jüdisches Museum</div>
-      <div class="iph-file" style="font-size:7px">Zickzack-Fassade aus Zink — Luftaufnahme ideal</div>
-      <div class="iph-tip">📁 06b_juedisches_museum.jpg</div>
-    </div>
+    <!-- FOTO G: Jüdisches Museum Berlin -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Jewish_Museum_Berlin.jpg/1280px-Jewish_Museum_Berlin.jpg" alt="" onerror="this.style.opacity=0">
     <div class="s6c-grad"></div>
     <div class="s6c-num">02</div>
     <div class="s6c-body">
@@ -447,13 +332,8 @@ html,body{
     </div>
   </div>
   <div class="s6c af">
-    <!-- IMAGE 6C: Humboldt Forum Berlin — Außenansicht -->
-    <div class="iph" style="border:none">
-      <div class="iph-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="1.2"><rect x="3" y="3" width="18" height="18"/><path d="M3 9l4-4 4 4 4-6 6 9"/></svg></div>
-      <div class="iph-name" style="font-size:9px;color:#d4a843">Humboldt Forum</div>
-      <div class="iph-file" style="font-size:7px">Außenansicht — rekonstruiertes Berliner Schloss</div>
-      <div class="iph-tip">📁 06c_humboldt_forum.jpg</div>
-    </div>
+    <!-- FOTO H: Humboldt Forum Berlin -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Humboldt_Forum_2021.jpg/1280px-Humboldt_Forum_2021.jpg" alt="" onerror="this.style.background='#2a2420'">
     <div class="s6c-grad"></div>
     <div class="s6c-num">03</div>
     <div class="s6c-body">
@@ -464,19 +344,11 @@ html,body{
   </div>
 </div>
 
-<!-- ════════════════════════════════════════
-  07 — OZEANEUM + UNIVERSUM
-════════════════════════════════════════ -->
-<div class="s s7"
-  data-n="Zwei Gebäude, die wie Tiere aussehen! Das Ozeaneum in Stralsund sieht aus wie Quallen im Meer — es wurde 2008 gebaut. Das UNIVERSUM in Bremen sieht aus wie ein silberner Wal — 80 Meter lang, gebaut 2000. Beide Architekten: Behnisch Architekten.">
+<!-- 07 OZEANEUM -->
+<div class="s s7" data-n="Zwei Gebäude, die wie Tiere aussehen! Ozeaneum Stralsund 2008 — sieht aus wie Quallen im Meer. UNIVERSUM Bremen 2000 — sieht aus wie ein silberner Wal, 80 Meter lang. Beide von Behnisch Architekten.">
   <div class="s7-img asc">
-    <!-- IMAGE 7: Ozeaneum Stralsund — Außenansicht von der Wasserseite -->
-    <div class="iph" style="border:none;background:#e8e0d0">
-      <div class="iph-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a8c78" stroke-width="1.2"><rect x="3" y="3" width="18" height="18"/><path d="M3 9l4-4 4 4 4-6 6 9"/></svg></div>
-      <div class="iph-name" style="color:#1a8c78">Ozeaneum Stralsund</div>
-      <div class="iph-file" style="color:#8a8070">Außenansicht vom Wasser — weiße Quallen-Form</div>
-      <div class="iph-tip" style="color:#c0b090">📁 07_ozeaneum.jpg</div>
-    </div>
+    <!-- FOTO I: Ozeaneum Stralsund -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Ozeaneum_Stralsund_2009.JPG/1280px-Ozeaneum_Stralsund_2009.JPG" class="ph" alt="Ozeaneum" onerror="this.parentElement.style.background='#e0d4c0'">
     <div class="cap" style="color:rgba(15,14,12,.35)">Ozeaneum Stralsund · Behnisch Architekten · 2008</div>
   </div>
   <div class="s7-txt">
@@ -492,20 +364,12 @@ html,body{
   </div>
 </div>
 
-<!-- ════════════════════════════════════════
-  08 — MEDIENHAFEN DÜSSELDORF
-════════════════════════════════════════ -->
-<div class="s s8"
-  data-n="Der Medienhafen in Düsseldorf — früher ein alter Hafen, heute ein modernes Stadtviertel. Frank Gehry hat drei Häuser mit schiefen Wänden gebaut. Am Anfang mochten die Leute sie nicht. Heute sind sie die Ikone der Stadt!">
+<!-- 08 MEDIENHAFEN -->
+<div class="s s8" data-n="Der Medienhafen in Düsseldorf — früher ein alter Hafen, heute ein modernes Stadtviertel. Frank Gehry hat drei Häuser mit schiefen Wänden gebaut. Am Anfang mochten die Leute sie nicht. Heute sind sie die Ikone der Stadt!">
   <div class="s8-img asc">
-    <!-- IMAGE 8: Medienhafen Düsseldorf — Gehry-Bauten von außen -->
-    <div class="iph" style="border:none">
-      <div class="iph-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f0e0c" stroke-width="1.2"><rect x="3" y="3" width="18" height="18"/><path d="M3 9l4-4 4 4 4-6 6 9"/></svg></div>
-      <div class="iph-name" style="color:#0f0e0c">Medienhafen Düsseldorf</div>
-      <div class="iph-file" style="color:rgba(15,14,12,.5)">Gehry-Bauten — schiefe Türme am Rhein</div>
-      <div class="iph-tip" style="color:rgba(15,14,12,.3)">📁 08_medienhafen.jpg</div>
-    </div>
-    <div class="cap" style="color:rgba(15,14,12,.35)">Medienhafen · Frank Gehry · 1999</div>
+    <!-- FOTO J: Medienhafen Düsseldorf -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Medienhafen_D%C3%BCsseldorf_Geh.jpg/1280px-Medienhafen_D%C3%BCsseldorf_Geh.jpg" class="ph" alt="Medienhafen" onerror="this.parentElement.style.background='#c09830'">
+    <div class="cap" style="color:rgba(15,14,12,.35)">Medienhafen Düsseldorf · Frank Gehry · 1999</div>
   </div>
   <div class="s8-txt">
     <div class="s8-ey a2">Nordrhein-Westfalen · Düsseldorf</div>
@@ -519,20 +383,12 @@ html,body{
   </div>
 </div>
 
-<!-- ════════════════════════════════════════
-  09 — VÖLKLINGER HÜTTE (Saarland)
-════════════════════════════════════════ -->
-<div class="s s9"
-  data-n="Die Völklinger Hütte im Saarland ist etwas ganz Besonderes. Es ist eine alte Fabrik aus dem 19. Jahrhundert — aber heute ist sie UNESCO-Weltkulturerbe. Es ist das einzige erhaltene Eisenwerk der Welt aus dieser Zeit. Die Hütte ist heute ein Kulturzentrum und Museum.">
+<!-- 09 VÖLKLINGER HÜTTE -->
+<div class="s s9" data-n="Die Völklinger Hütte im Saarland ist etwas ganz Besonderes. Es ist eine alte Fabrik aus dem 19. Jahrhundert. Heute ist sie UNESCO-Weltkulturerbe — das einzige erhaltene Eisenwerk der Welt aus dieser Zeit. Heute ist sie ein Kulturzentrum und Museum.">
   <div class="s9-img asc">
-    <!-- IMAGE 9: Völklinger Hütte — Industrieanlage von außen oder innen -->
-    <div class="iph" style="border:none">
-      <div class="iph-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7b6cad" stroke-width="1.2"><rect x="3" y="3" width="18" height="18"/><path d="M3 9l4-4 4 4 4-6 6 9"/></svg></div>
-      <div class="iph-name" style="color:#7b6cad">Völklinger Hütte</div>
-      <div class="iph-file">Industrieanlage — Hochöfen und Stahlkonstruktion</div>
-      <div class="iph-tip">📁 09_voelklinger_huette.jpg</div>
-    </div>
-    <div class="cap">Völklinger Hütte · Saarland · UNESCO-Welterbe</div>
+    <!-- FOTO K: Völklinger Hütte -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Voelklinger_Huette_2012.jpg/1280px-Voelklinger_Huette_2012.jpg" class="ph" alt="Völklinger Hütte" onerror="this.style.opacity=0">
+    <div class="cap">Völklinger Hütte · Saarland · UNESCO-Welterbe seit 1994</div>
   </div>
   <div class="s9-txt">
     <div class="s9-ey a2">Saarland · seit 1994 UNESCO</div>
@@ -547,19 +403,10 @@ html,body{
   </div>
 </div>
 
-<!-- ════════════════════════════════════════
-  10 — SCHLUSS
-════════════════════════════════════════ -->
-<div class="s s10"
-  data-n="Zum Schluss: Deutschland hat sehr viele interessante Gebäude — alte Fabriken, moderne Konzerthäuser, mutige Museen. Wir hoffen, es hat euch gefallen! Habt ihr Fragen?">
+<!-- 10 END -->
+<div class="s s10" data-n="Zum Schluss: Deutschland hat sehr viele interessante Gebäude — alte Fabriken, moderne Konzerthäuser, mutige Museen. Wir hoffen, es hat euch gefallen! Habt ihr Fragen?">
   <div class="s10-bg af">
-    <!-- IMAGE 10: Schluss-Bild — z.B. Elbphilharmonie bei Nacht oder Skyline -->
-    <div class="iph" style="border:none">
-      <div class="iph-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e8572a" stroke-width="1.2"><rect x="3" y="3" width="18" height="18"/><path d="M3 9l4-4 4 4 4-6 6 9"/></svg></div>
-      <div class="iph-name">Schlussbild</div>
-      <div class="iph-file">Elbphilharmonie bei Nacht — oder Skyline Hamburg</div>
-      <div class="iph-tip">📁 10_schluss.jpg</div>
-    </div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Elbphilharmonie_Hamburg_2017.jpg/1280px-Elbphilharmonie_Hamburg_2017.jpg" class="ph" alt="" onerror="this.style.opacity=0">
   </div>
   <div class="s10-grad"></div>
   <div class="s10-stripe"></div>
@@ -572,12 +419,11 @@ html,body{
   </div>
 </div>
 
-</div><!-- /deck -->
+</div>
 <script>
 (function(){
 'use strict';
 var S=document.querySelectorAll('.s'),N=S.length,c=0;
-
 function go(n){
   if(n<0||n>=N)return;
   var p=c;
@@ -590,11 +436,8 @@ function go(n){
   document.getElementById('prog').style.width=((c+1)/N*100)+'%';
   document.getElementById('htr').textContent=(c+1<10?'0':'')+(c+1)+' / '+(N<10?'0':'')+N;
   document.getElementById('nt').textContent=S[c].getAttribute('data-n')||'';
-  if(c===1){
-    setTimeout(function(){var w=document.getElementById('wp');if(w){w.classList.remove('go');void w.offsetWidth;w.classList.add('go')}},420);
-  }
+  if(c===1){setTimeout(function(){var w=document.getElementById('wp');if(w){w.classList.remove('go');void w.offsetWidth;w.classList.add('go')}},420)}
 }
-
 document.getElementById('bn').addEventListener('click',function(){go(c+1)});
 document.getElementById('bp').addEventListener('click',function(){go(c-1)});
 document.addEventListener('keydown',function(e){
@@ -605,18 +448,15 @@ document.addEventListener('keydown',function(e){
 var tx=0;
 document.addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
 document.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50){dx<0?go(c+1):go(c-1)}},{passive:true});
-
 var no=false;
 function tN(){no=!no;document.getElementById('notes').classList.toggle('open',no)}
 document.getElementById('bno').addEventListener('click',tN);
-
 var tEl=document.getElementById('htl'),tr=false,ts=0,ti=null;
 tEl.addEventListener('click',function(e){
   e.stopPropagation();
   if(tr){clearInterval(ti);tr=false;tEl.classList.remove('on')}
   else{ti=setInterval(function(){ts++;var m=Math.floor(ts/60),s=ts%60;tEl.textContent='⏱ '+(m<10?'0':'')+m+':'+(s<10?'0':'')+s},1000);tr=true;tEl.classList.add('on')}
 });
-
 go(0);document.getElementById('prog').style.width=(1/N*100)+'%';
 })();
 </script>
