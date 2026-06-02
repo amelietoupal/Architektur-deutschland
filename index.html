@@ -335,6 +335,7 @@ html,body{
       <div class="s6c-tag">Berlin · 2021</div>
       <div class="s6c-title">Humboldt Forum</div>
       <div class="s6c-sub">Altes Schloss — modernes Inneres</div>
+      <button onclick="event.stopPropagation();openLb('https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9501.png')" style="margin-top:10px;background:rgba(232,87,42,.85);border:none;color:#fff;font-family:\'Courier New\',monospace;font-size:9px;letter-spacing:.15em;padding:7px 14px;cursor:pointer;text-transform:uppercase;border-radius:2px">+ Innenraum sehen</button>
     </div>
   </div>
 </div>
@@ -464,6 +465,9 @@ lb.appendChild(lbImg);
 document.body.appendChild(lb);
 
 function openLb(src){
+  window._openLb(src);
+}
+window._openLb=function(src){
   lbImg.src=src;
   lb.style.display='flex';
   requestAnimationFrame(function(){
@@ -475,6 +479,7 @@ function openLb(src){
     });
   });
 }
+window.openLb=window._openLb;
 function closeLb(){
   lb.style.background='rgba(0,0,0,0)';
   lbImg.style.opacity='0';
