@@ -42,7 +42,150 @@ html,body{
 .ph{width:100%;height:100%;object-fit:cover;display:block}
 .cap{position:absolute;bottom:0;left:0;right:0;padding:10px 18px;background:linear-gradient(transparent,rgba(15,14,12,.75));font-family:'Courier New',monospace;font-size:8px;letter-spacing:.14em;color:rgba(240,235,226,.5);text-transform:uppercase}
 
-/* ── 01 TITLE ── */
+/* ══ COUNTER ANIMATION ══ */
+.s2-pv[data-target]{transition:none}
+
+/* ══ TOOLTIP on grid cards ══ */
+.s7c{position:relative}
+.bl-tip{
+  position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
+  background:#1e1c18;border:1px solid rgba(232,87,42,.3);
+  color:#f0ebe2;font-family:'Courier New',monospace;font-size:9px;
+  letter-spacing:.08em;line-height:1.6;padding:8px 12px;
+  white-space:nowrap;pointer-events:none;
+  opacity:0;transition:opacity .2s;z-index:100;
+  box-shadow:0 8px 24px rgba(0,0,0,.4);
+}
+.bl-tip::after{
+  content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  border:5px solid transparent;border-top-color:#1e1c18;
+}
+.s7c:hover .bl-tip{opacity:1}
+
+/* ══ KEYBOARD HELP POPUP ══ */
+#khelp{
+  position:fixed;inset:0;z-index:99998;display:none;
+  align-items:center;justify-content:center;
+  background:rgba(0,0,0,.7);
+}
+#khelp.open{display:flex}
+#khelp-box{
+  background:#1e1c18;border:1px solid rgba(232,87,42,.2);
+  padding:32px 40px;min-width:300px;
+  box-shadow:0 30px 80px rgba(0,0,0,.6);
+}
+#khelp-box h3{
+  font-family:'Courier New',monospace;font-size:10px;letter-spacing:.3em;
+  color:#e8572a;text-transform:uppercase;margin-bottom:20px;
+}
+.krow{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.krow:last-child{border-bottom:none}
+.kkey{
+  font-family:'Courier New',monospace;font-size:11px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+  padding:3px 10px;color:#f0ebe2;
+}
+.kdesc{font-size:12px;color:rgba(240,235,226,.45);font-family:Georgia,serif}
+#khelp-close{
+  margin-top:20px;width:100%;background:none;border:1px solid rgba(232,87,42,.3);
+  color:#e8572a;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.15em;
+  padding:9px;cursor:pointer;text-transform:uppercase;transition:all .2s;
+}
+#khelp-close:hover{background:rgba(232,87,42,.1)}
+
+/* ══ TIMELINE SLIDE ══ */
+.s-tl{background:#0f0e0c;align-items:center;justify-content:center;flex-direction:column;padding:0 6vw;overflow:hidden}
+.tl-title{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.28em;color:#e8572a;text-transform:uppercase;margin-bottom:40px}
+.tl-track{position:relative;width:100%;max-width:900px}
+.tl-line{height:2px;background:rgba(240,235,226,.1);width:100%;position:relative;margin:0 auto}
+.tl-line::after{content:'';position:absolute;left:0;top:0;height:100%;background:linear-gradient(90deg,#e8572a,#d4a843);width:0%;transition:width 1s cubic-bezier(.4,0,.2,1)}
+.tl-line.anim::after{width:100%}
+.tl-items{display:flex;justify-content:space-between;position:relative;margin-top:-1px}
+.tl-item{display:flex;flex-direction:column;align-items:center;cursor:pointer;flex:1}
+.tl-dot{
+  width:14px;height:14px;border-radius:50%;background:#1e1c18;
+  border:2px solid rgba(240,235,226,.2);
+  transition:all .25s;margin-bottom:14px;position:relative;z-index:1;
+  flex-shrink:0;
+}
+.tl-item:hover .tl-dot,.tl-item.active .tl-dot{border-color:#e8572a;background:#e8572a;box-shadow:0 0 12px rgba(232,87,42,.5)}
+.tl-year{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.1em;color:rgba(240,235,226,.35);margin-bottom:6px;transition:color .2s}
+.tl-item:hover .tl-year,.tl-item.active .tl-year{color:#e8572a}
+.tl-name{font-size:11px;font-weight:700;color:rgba(240,235,226,.6);text-align:center;line-height:1.3;max-width:90px;transition:color .2s}
+.tl-item:hover .tl-name,.tl-item.active .tl-name{color:#f0ebe2}
+.tl-detail{
+  margin-top:40px;max-width:500px;text-align:center;
+  min-height:70px;
+}
+.tl-detail-yr{font-size:clamp(36px,5vw,64px);font-weight:900;font-style:italic;color:#e8572a;line-height:1;margin-bottom:10px}
+.tl-detail-txt{font-size:13px;color:rgba(240,235,226,.5);font-family:Georgia,serif;line-height:1.7}
+
+/* ══ COMPARISON SLIDER ══ */
+.s-cmp{background:#0f0e0c;position:relative;overflow:hidden;cursor:ew-resize}
+.cmp-before,.cmp-after{position:absolute;inset:0;overflow:hidden}
+.cmp-before img,.cmp-after img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cmp-after{clip-path:inset(0 50% 0 0);transition:clip-path 0s}
+.cmp-handle{
+  position:absolute;top:0;bottom:0;left:50%;width:3px;
+  background:#e8572a;transform:translateX(-50%);cursor:ew-resize;z-index:10;
+}
+.cmp-handle::before,.cmp-handle::after{
+  content:'';position:absolute;left:50%;transform:translateX(-50%);
+  width:36px;height:36px;border-radius:50%;background:#e8572a;top:calc(50% - 18px);
+  display:flex;align-items:center;justify-content:center;
+}
+.cmp-handle::after{
+  content:'◀ ▶';font-size:10px;color:#0f0e0c;font-weight:900;
+  display:flex;align-items:center;justify-content:center;line-height:36px;
+  text-align:center;
+}
+.cmp-label-l,.cmp-label-r{
+  position:absolute;bottom:20px;font-family:'Courier New',monospace;
+  font-size:9px;letter-spacing:.2em;text-transform:uppercase;
+  background:rgba(15,14,12,.7);padding:5px 12px;color:rgba(240,235,226,.6);z-index:5;
+}
+.cmp-label-l{left:20px}
+.cmp-label-r{right:20px}
+.cmp-title{
+  position:absolute;top:24px;left:50%;transform:translateX(-50%);
+  font-family:'Courier New',monospace;font-size:9px;letter-spacing:.25em;
+  color:#e8572a;text-transform:uppercase;z-index:10;white-space:nowrap;
+}
+
+/* ══ GERMANY MAP ══ */
+.s-map{background:#0f0e0c;flex-direction:row;align-items:stretch}
+.map-l{width:42%;display:flex;flex-direction:column;justify-content:center;padding:40px 4vw 40px 7vw}
+.map-r{flex:1;display:flex;align-items:center;justify-content:center;padding:20px;position:relative}
+.map-ey{font-family:'Courier New',monospace;font-size:9px;letter-spacing:.25em;color:#e8572a;text-transform:uppercase;margin-bottom:16px}
+.map-h{font-size:clamp(24px,3.5vw,46px);font-weight:900;color:#f0ebe2;line-height:1;letter-spacing:-.025em;margin-bottom:14px}
+.map-h em{font-style:italic;color:#e8572a}
+.map-info{min-height:80px}
+.map-info-city{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.2em;color:#e8572a;text-transform:uppercase;margin-bottom:6px}
+.map-info-name{font-size:18px;font-weight:900;color:#f0ebe2;margin-bottom:6px}
+.map-info-txt{font-size:12px;color:rgba(240,235,226,.45);font-family:Georgia,serif;line-height:1.6}
+.map-hint{margin-top:16px;font-family:'Courier New',monospace;font-size:8px;letter-spacing:.18em;color:rgba(240,235,226,.2);text-transform:uppercase}
+svg.de-map{width:100%;max-height:80vh}
+svg.de-map .state{fill:rgba(240,235,226,.04);stroke:rgba(240,235,226,.12);stroke-width:1;cursor:pointer;transition:fill .2s}
+svg.de-map .state:hover{fill:rgba(232,87,42,.2);stroke:#e8572a}
+svg.de-map .state.lit{fill:rgba(232,87,42,.35);stroke:#e8572a}
+svg.de-map .state-dot{fill:#e8572a;opacity:0;transition:opacity .3s}
+svg.de-map .state.lit .state-dot{opacity:1}
+
+/* ══ FULLSCREEN MODE ══ */
+body.fs-mode #htl,body.fs-mode #htr,body.fs-mode #hbl,body.fs-mode #notes{opacity:0;pointer-events:none;transition:opacity .3s}
+body.fs-mode #prog{opacity:0}
+#fs-btn{
+  position:fixed;bottom:18px;right:20px;z-index:9998;
+  background:none;border:1px solid rgba(240,235,226,.12);
+  color:rgba(240,235,226,.25);font-family:'Courier New',monospace;
+  font-size:9px;letter-spacing:.1em;padding:6px 12px;cursor:pointer;
+  text-transform:uppercase;transition:all .2s;
+}
+#fs-btn:hover{border-color:#e8572a;color:#e8572a}
+
+/* ══ PARALLAX TITLE ══ */
+.s1-bg img{will-change:transform;-webkit-transform:scale(1.08) translate3d(0,0,0);transform:scale(1.08) translate3d(0,0,0);transition:transform 8s cubic-bezier(.25,.46,.45,.94)}
+.s1.active .s1-bg img{-webkit-transform:scale(1) translate3d(0,-2%,0);transform:scale(1) translate3d(0,-2%,0)}
 .s1{background:#0f0e0c}
 .s1-bg{position:absolute;inset:0}
 .s1-grad{position:absolute;inset:0;background:linear-gradient(108deg,#0f0e0c 40%,transparent 75%)}
@@ -193,8 +336,30 @@ html,body{
   <button class="hb" id="bp">← Zurück</button>
   <button class="hb" id="bn">Weiter →</button>
   <button class="hb" id="bno">Notizen</button>
+  <button class="hb" id="btl">? Tasten</button>
 </div>
+<button id="fs-btn">⛶ Vollbild</button>
 <div id="notes"><div id="nl">Sprechernotizen</div><div id="nt"></div></div>
+
+<!-- KEYBOARD HELP -->
+<div id="khelp">
+  <div id="khelp-box">
+    <h3>Tastaturkürzel</h3>
+    <div class="krow"><span class="kkey">→ / ↓</span><span class="kdesc">Nächste Folie</span></div>
+    <div class="krow"><span class="kkey">← / ↑</span><span class="kdesc">Vorherige Folie</span></div>
+    <div class="krow"><span class="kkey">N</span><span class="kdesc">Notizen ein/aus</span></div>
+    <div class="krow"><span class="kkey">F</span><span class="kdesc">Vollbildmodus</span></div>
+    <div class="krow"><span class="kkey">T</span><span class="kdesc">Timer starten/stoppen</span></div>
+    <div class="krow"><span class="kkey">?</span><span class="kdesc">Diese Hilfe</span></div>
+    <div class="krow"><span class="kkey">ESC</span><span class="kdesc">Schließen</span></div>
+    <button id="khelp-close">Schließen</button>
+  </div>
+</div>
+
+<!-- CLICK SOUND -->
+<audio id="snd-click" preload="auto">
+  <source src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=" type="audio/wav">
+</audio>
 
 <div id="deck">
 
@@ -417,56 +582,160 @@ html,body{
 <script>
 (function(){
 'use strict';
-var S=document.querySelectorAll('.s'),N=S.length,c=0;
+
+/* ══════════════════════════════
+   CLICK SOUND
+══════════════════════════════ */
+var AudioCtx = window.AudioContext || window.webkitAudioContext;
+function playClick(){
+  try {
+    var ctx = new AudioCtx();
+    var osc = ctx.createOscillator();
+    var gain = ctx.createGain();
+    osc.connect(gain); gain.connect(ctx.destination);
+    osc.type = 'sine'; osc.frequency.value = 900;
+    gain.gain.setValueAtTime(0.08, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
+    osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.08);
+  } catch(e){}
+}
+
+/* ══════════════════════════════
+   SLIDES
+══════════════════════════════ */
+var S=document.querySelectorAll('.s'), N=S.length, c=0;
+
 function go(n){
   if(n<0||n>=N)return;
+  playClick();
   var p=c;
-  S[p].classList.remove('active');S[p].classList.add('out');
-  S[n].classList.add('inn');c=n;
+  S[p].classList.remove('active'); S[p].classList.add('out');
+  S[n].classList.add('inn'); c=n;
   requestAnimationFrame(function(){requestAnimationFrame(function(){
-    S[c].classList.remove('inn');S[c].classList.add('active');
+    S[c].classList.remove('inn'); S[c].classList.add('active');
     setTimeout(function(){S[p].classList.remove('out')},560);
   })});
   document.getElementById('prog').style.width=((c+1)/N*100)+'%';
   document.getElementById('htr').textContent=(c+1<10?'0':'')+(c+1)+' / '+(N<10?'0':'')+N;
   document.getElementById('nt').textContent=S[c].getAttribute('data-n')||'';
+  /* wave on slide 2 */
   if(c===1){setTimeout(function(){var w=document.getElementById('wp');if(w){w.classList.remove('go');void w.offsetWidth;w.classList.add('go')}},420)}
+  /* counter animation on slide 2 */
+  if(c===1) animateCounters();
+  /* timeline animation */
+  if(S[c].classList.contains('s-tl')){setTimeout(function(){document.querySelector('.tl-line').classList.add('anim')},200)}
 }
+
 document.getElementById('bn').addEventListener('click',function(){go(c+1)});
 document.getElementById('bp').addEventListener('click',function(){go(c-1)});
-document.addEventListener('keydown',function(e){
-  if(e.key==='ArrowRight'||e.key==='ArrowDown')go(c+1);
-  if(e.key==='ArrowLeft'||e.key==='ArrowUp')go(c-1);
-  if(e.key==='n'||e.key==='N')tN();
-});
+
 var tx=0;
 document.addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
 document.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50){dx<0?go(c+1):go(c-1)}},{passive:true});
+
+/* ══════════════════════════════
+   KEYBOARD SHORTCUTS
+══════════════════════════════ */
+document.addEventListener('keydown',function(e){
+  if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA')return;
+  switch(e.key){
+    case 'ArrowRight': case 'ArrowDown': go(c+1); break;
+    case 'ArrowLeft':  case 'ArrowUp':   go(c-1); break;
+    case 'n': case 'N': tN(); break;
+    case 'f': case 'F': toggleFs(); break;
+    case 't': case 'T': tEl.click(); break;
+    case '?': toggleHelp(); break;
+    case 'Escape': hideLb(); closeHelp(); break;
+  }
+});
+
+/* ══════════════════════════════
+   NOTES
+══════════════════════════════ */
 var no=false;
 function tN(){no=!no;document.getElementById('notes').classList.toggle('open',no)}
 document.getElementById('bno').addEventListener('click',tN);
-var tEl=document.getElementById('htl'),tr=false,ts=0,ti=null;
+
+/* ══════════════════════════════
+   TIMER
+══════════════════════════════ */
+var tEl=document.getElementById('htl'), tr=false, ts=0, ti=null;
 tEl.addEventListener('click',function(e){
   e.stopPropagation();
   if(tr){clearInterval(ti);tr=false;tEl.classList.remove('on')}
   else{ti=setInterval(function(){ts++;var m=Math.floor(ts/60),s=ts%60;tEl.textContent='⏱ '+(m<10?'0':'')+m+':'+(s<10?'0':'')+s},1000);tr=true;tEl.classList.add('on')}
 });
-go(0);document.getElementById('prog').style.width=(1/N*100)+'%';
 
-/* ── LIGHTBOX ── */
+/* ══════════════════════════════
+   FULLSCREEN MODE
+══════════════════════════════ */
+var fsOn=false;
+function toggleFs(){
+  fsOn=!fsOn;
+  document.body.classList.toggle('fs-mode',fsOn);
+  document.getElementById('fs-btn').textContent=fsOn?'✕ HUD anzeigen':'⛶ Vollbild';
+}
+document.getElementById('fs-btn').addEventListener('click',toggleFs);
+
+/* ══════════════════════════════
+   KEYBOARD HELP
+══════════════════════════════ */
+function toggleHelp(){document.getElementById('khelp').classList.toggle('open')}
+function closeHelp(){document.getElementById('khelp').classList.remove('open')}
+document.getElementById('btl').addEventListener('click',toggleHelp);
+document.getElementById('khelp-close').addEventListener('click',closeHelp);
+document.getElementById('khelp').addEventListener('click',function(e){if(e.target===this)closeHelp()});
+
+/* ══════════════════════════════
+   COUNTER ANIMATION (Elb pills)
+══════════════════════════════ */
+var counterDone=false;
+function animateCounters(){
+  if(counterDone)return; counterDone=true;
+  var targets=[
+    {el:null, from:0, to:110, suffix:'m', selector:'.s2-pill:nth-child(1) .s2-pv'},
+    {el:null, from:2010, to:2017, suffix:'', selector:'.s2-pill:nth-child(2) .s2-pv'},
+    {el:null, from:0, to:2100, suffix:'', selector:'.s2-pill:nth-child(3) .s2-pv'},
+  ];
+  targets.forEach(function(t){
+    t.el=document.querySelector(t.selector);
+    if(!t.el)return;
+    var start=null, dur=1200;
+    function step(ts){
+      if(!start)start=ts;
+      var prog=Math.min((ts-start)/dur,1);
+      var ease=1-Math.pow(1-prog,3);
+      var val=Math.round(t.from+(t.to-t.from)*ease);
+      t.el.textContent=(val>=1000?(val/1000).toFixed(1)+'k':val)+t.suffix;
+      if(prog<1)requestAnimationFrame(step);
+      else t.el.textContent=t.to>=1000?(t.to/1000).toFixed(1)+'k'+t.suffix:t.to+t.suffix;
+    }
+    requestAnimationFrame(step);
+  });
+}
+
+/* ══════════════════════════════
+   PARALLAX on title
+══════════════════════════════ */
+/* Handled via CSS transition on .s1.active .s1-bg img */
+
+/* ══════════════════════════════
+   LIGHTBOX
+══════════════════════════════ */
 var lb=document.createElement('div');
 lb.id='lb';
 lb.style.cssText='position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;cursor:zoom-out;background:rgba(0,0,0,0);transition:background .35s cubic-bezier(.4,0,.2,1)';
 var lbImg=document.createElement('img');
-lbImg.style.cssText='max-width:94vw;max-height:94vh;object-fit:contain;opacity:0;-webkit-transform:scale(.88) translate3d(0,0,0);transform:scale(.88) translate3d(0,0,0);transition:opacity .35s cubic-bezier(.4,0,.2,1),transform .35s cubic-bezier(.4,0,.2,1);box-shadow:0 30px 80px rgba(0,0,0,.7)';
+lbImg.style.cssText='max-width:94vw;max-height:94vh;object-fit:contain;opacity:0;-webkit-transform:scale(.84) translate3d(0,0,0);transform:scale(.84) translate3d(0,0,0);transition:opacity .4s cubic-bezier(.4,0,.2,1),transform .4s cubic-bezier(.34,1.56,.64,1);box-shadow:0 40px 120px rgba(0,0,0,.8)';
 lb.appendChild(lbImg);
 document.body.appendChild(lb);
 
 function showLb(src){
+  playClick();
   lbImg.src=src;
   lb.style.display='flex';
   requestAnimationFrame(function(){requestAnimationFrame(function(){
-    lb.style.background='rgba(0,0,0,.92)';
+    lb.style.background='rgba(0,0,0,.93)';
     lbImg.style.opacity='1';
     lbImg.style.webkitTransform='scale(1) translate3d(0,0,0)';
     lbImg.style.transform='scale(1) translate3d(0,0,0)';
@@ -475,14 +744,12 @@ function showLb(src){
 function hideLb(){
   lb.style.background='rgba(0,0,0,0)';
   lbImg.style.opacity='0';
-  lbImg.style.webkitTransform='scale(.88) translate3d(0,0,0)';
-  lbImg.style.transform='scale(.88) translate3d(0,0,0)';
-  setTimeout(function(){lb.style.display='none'},360);
+  lbImg.style.webkitTransform='scale(.84) translate3d(0,0,0)';
+  lbImg.style.transform='scale(.84) translate3d(0,0,0)';
+  setTimeout(function(){lb.style.display='none'},400);
 }
 lb.addEventListener('click',hideLb);
-document.addEventListener('keydown',function(e){if(e.key==='Escape')hideLb()});
 
-/* Auto lightbox on regular slides */
 function addLb(sel){
   document.querySelectorAll(sel).forEach(function(img){
     img.style.cursor='zoom-in';
@@ -490,41 +757,35 @@ function addLb(sel){
     img.addEventListener('click',function(e){e.stopPropagation();showLb(img.src)});
   });
 }
-addLb('.s2 img');
-addLb('.s3 img');
-addLb('.s4 img');
-addLb('.s5-img img');
-addLb('.s7 img');
-addLb('.s8 img');
-addLb('.s9 img');
+addLb('.s2 img'); addLb('.s3 img'); addLb('.s4 img');
+addLb('.s5-img img'); addLb('.s7 img'); addLb('.s8 img'); addLb('.s9 img');
 
-/* Berlin karty — klik na celou kartu otevře daný obrázek */
 document.querySelectorAll('.s6c').forEach(function(card){
   card.style.cursor='zoom-in';
   card.addEventListener('click',function(e){
-    if(e.target.id==='hb2')return; /* tlačítko handled below */
+    if(e.target.id==='hb2')return;
     var img=card.querySelector('img');
     if(img)showLb(img.src);
   });
 });
 
-/* Tlačítko Humboldt Forum — druhá fotka */
 var hb2=document.getElementById('hb2');
-if(hb2){
-  hb2.addEventListener('click',function(e){
-    e.stopPropagation();
-    showLb('https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9501.png');
-  });
-}
+if(hb2){hb2.addEventListener('click',function(e){e.stopPropagation();showLb('https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9501.png')})}
 
-/* Tlačítko Reichstag — kuppel innen */
 var rb2=document.getElementById('rb2');
-if(rb2){
-  rb2.addEventListener('click',function(e){
-    e.stopPropagation();
-    showLb('https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9517.jpeg');
-  });
-}
+if(rb2){rb2.addEventListener('click',function(e){e.stopPropagation();showLb('https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9517.jpeg')})}
+
+/* ══════════════════════════════
+   TOOLTIP on grid cards
+══════════════════════════════ */
+/* Handled via CSS :hover — tooltips are in the HTML via .bl-tip divs */
+
+/* ══════════════════════════════
+   INIT
+══════════════════════════════ */
+go(0);
+document.getElementById('prog').style.width=(1/N*100)+'%';
+
 })();
 </script>
 </body>
