@@ -335,7 +335,7 @@ html,body{
       <div class="s6c-tag">Berlin · 2021</div>
       <div class="s6c-title">Humboldt Forum</div>
       <div class="s6c-sub">Altes Schloss — modernes Inneres</div>
-      <button onclick="event.stopPropagation();openLb('https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9501.png')" style="margin-top:10px;background:rgba(232,87,42,.85);border:none;color:#fff;font-family:\'Courier New\',monospace;font-size:9px;letter-spacing:.15em;padding:7px 14px;cursor:pointer;text-transform:uppercase;border-radius:2px">+ Innenraum sehen</button>
+      <button id="hb2" style="margin-top:10px;background:rgba(232,87,42,.85);border:none;color:#fff;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.15em;padding:7px 14px;cursor:pointer;text-transform:uppercase;border-radius:2px">+ Innenraum sehen</button>
     </div>
   </div>
 </div>
@@ -460,58 +460,64 @@ var lb=document.createElement('div');
 lb.id='lb';
 lb.style.cssText='position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;cursor:zoom-out;background:rgba(0,0,0,0);transition:background .35s cubic-bezier(.4,0,.2,1)';
 var lbImg=document.createElement('img');
-lbImg.style.cssText='max-width:94vw;max-height:94vh;object-fit:contain;opacity:0;-webkit-transform:scale(.88) translate3d(0,0,0);transform:scale(.88) translate3d(0,0,0);transition:opacity .35s cubic-bezier(.4,0,.2,1),transform .35s cubic-bezier(.4,0,.2,1);box-shadow:0 30px 80px rgba(0,0,0,.7);cursor:zoom-out';
+lbImg.style.cssText='max-width:94vw;max-height:94vh;object-fit:contain;opacity:0;-webkit-transform:scale(.88) translate3d(0,0,0);transform:scale(.88) translate3d(0,0,0);transition:opacity .35s cubic-bezier(.4,0,.2,1),transform .35s cubic-bezier(.4,0,.2,1);box-shadow:0 30px 80px rgba(0,0,0,.7)';
 lb.appendChild(lbImg);
 document.body.appendChild(lb);
 
-function openLb(src){
-  window._openLb(src);
-}
-window._openLb=function(src){
+function showLb(src){
   lbImg.src=src;
   lb.style.display='flex';
-  requestAnimationFrame(function(){
-    requestAnimationFrame(function(){
-      lb.style.background='rgba(0,0,0,.92)';
-      lbImg.style.opacity='1';
-      lbImg.style.webkitTransform='scale(1) translate3d(0,0,0)';
-      lbImg.style.transform='scale(1) translate3d(0,0,0)';
-    });
-  });
+  requestAnimationFrame(function(){requestAnimationFrame(function(){
+    lb.style.background='rgba(0,0,0,.92)';
+    lbImg.style.opacity='1';
+    lbImg.style.webkitTransform='scale(1) translate3d(0,0,0)';
+    lbImg.style.transform='scale(1) translate3d(0,0,0)';
+  })});
 }
-window.openLb=window._openLb;
-function closeLb(){
+function hideLb(){
   lb.style.background='rgba(0,0,0,0)';
   lbImg.style.opacity='0';
   lbImg.style.webkitTransform='scale(.88) translate3d(0,0,0)';
   lbImg.style.transform='scale(.88) translate3d(0,0,0)';
   setTimeout(function(){lb.style.display='none'},360);
 }
-lb.addEventListener('click',closeLb);
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+lb.addEventListener('click',hideLb);
+document.addEventListener('keydown',function(e){if(e.key==='Escape')hideLb()});
 
-/* Add click to all images on slides 2–9 */
-function addLightbox(sel){
+/* Auto lightbox on regular slides */
+function addLb(sel){
   document.querySelectorAll(sel).forEach(function(img){
     img.style.cursor='zoom-in';
-    /* pointer-events on overlapping divs must not block */
-    img.parentElement.querySelectorAll('div').forEach(function(d){
-      if(d!==img)d.style.pointerEvents='none';
-    });
-    img.addEventListener('click',function(e){
-      e.stopPropagation();
-      openLb(img.src);
-    });
+    img.parentElement.querySelectorAll('div').forEach(function(d){d.style.pointerEvents='none'});
+    img.addEventListener('click',function(e){e.stopPropagation();showLb(img.src)});
   });
 }
-addLightbox('.s2 img');
-addLightbox('.s3 img');
-addLightbox('.s4 img');
-addLightbox('.s5-img img');
-addLightbox('.s6c img');
-addLightbox('.s7 img');
-addLightbox('.s8 img');
-addLightbox('.s9 img');
+addLb('.s2 img');
+addLb('.s3 img');
+addLb('.s4 img');
+addLb('.s5-img img');
+addLb('.s7 img');
+addLb('.s8 img');
+addLb('.s9 img');
+
+/* Berlin karty — klik na celou kartu otevře daný obrázek */
+document.querySelectorAll('.s6c').forEach(function(card){
+  card.style.cursor='zoom-in';
+  card.addEventListener('click',function(e){
+    if(e.target.id==='hb2')return; /* tlačítko handled below */
+    var img=card.querySelector('img');
+    if(img)showLb(img.src);
+  });
+});
+
+/* Tlačítko Humboldt Forum — druhá fotka */
+var hb2=document.getElementById('hb2');
+if(hb2){
+  hb2.addEventListener('click',function(e){
+    e.stopPropagation();
+    showLb('https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9501.png');
+  });
+}
 })();
 </script>
 </body>
