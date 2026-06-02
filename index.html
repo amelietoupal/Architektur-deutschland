@@ -147,17 +147,16 @@ html,body{
 .s7-list li strong{color:#0f0e0c;font-weight:700}
 
 /* ── 08 MEDIENHAFEN ── */
-.s8{flex-direction:row;background:#d4a843}
-.s8-img{width:58%;position:relative;overflow:hidden;background:#c09830}
-.s8-txt{flex:1;display:flex;flex-direction:column;justify-content:center;padding:50px 5vw;background:#d4a843}
-.s8-ey{font-family:'Courier New',monospace;font-size:9px;letter-spacing:.25em;color:rgba(15,14,12,.4);text-transform:uppercase;margin-bottom:16px}
-.s8-h{font-size:clamp(26px,3.5vw,48px);font-weight:900;color:#0f0e0c;line-height:1;letter-spacing:-.025em;margin-bottom:16px}
-.s8-h em{font-style:italic;font-weight:400}
-.s8-rule{width:32px;height:3px;background:rgba(15,14,12,.25);margin-bottom:18px}
-.s8-list{list-style:none;display:flex;flex-direction:column;gap:10px}
-.s8-list li{display:grid;grid-template-columns:8px 1fr;gap:10px;font-size:13px;color:rgba(15,14,12,.6);font-family:Georgia,serif;line-height:1.55}
-.s8-list li::before{content:'';width:8px;height:8px;background:rgba(15,14,12,.3);border-radius:50%;margin-top:5px;flex-shrink:0}
-.s8-list li strong{color:#0f0e0c;font-weight:700}
+.s8{flex-direction:column;background:#0f0e0c}
+.s8-img{flex:1;position:relative;overflow:hidden;background:#1a1816}
+.s8-img-ov{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(15,14,12,.95) 100%)}
+.s8-badge{position:absolute;top:24px;left:32px;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.22em;color:rgba(240,235,226,.5);text-transform:uppercase;background:rgba(15,14,12,.5);padding:6px 12px}
+.s8-bottom{height:36%;display:flex;background:#0f0e0c}
+.s8-col{flex:1;padding:22px 5vw;border-right:1px solid rgba(240,235,226,.06);display:flex;flex-direction:column;justify-content:center}
+.s8-col:last-child{border-right:none}
+.s8-tag{font-family:'Courier New',monospace;font-size:8px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px;color:#1a8c78}
+.s8-cn{font-size:clamp(16px,2vw,23px);font-weight:900;color:#f0ebe2;margin-bottom:6px;letter-spacing:-.01em}
+.s8-cs{font-size:12px;color:rgba(240,235,226,.38);font-style:italic;font-family:Georgia,serif;line-height:1.6}
 
 /* ── 09 VÖLKLINGER HÜTTE ── */
 .s9{flex-direction:row;background:#0f0e0c}
@@ -361,21 +360,20 @@ html,body{
 </div>
 
 <!-- 08 MEDIENHAFEN -->
-<div class="s s8" data-n="Der Medienhafen in Düsseldorf — früher ein alter Hafen, heute ein modernes Stadtviertel. Frank Gehry hat drei Häuser mit schiefen Wänden gebaut. Am Anfang mochten die Leute sie nicht. Heute sind sie die Ikone der Stadt!">
+<div class="s s8" data-n="Das Reichstagsgebäude in Berlin ist sehr bekannt. Die Glaskuppel wurde 1999 gebaut — der Architekt ist Sir Norman Foster aus England. Die Kuppel ist 23 Meter hoch und 40 Meter breit. Besucher können auf zwei spiralförmigen Rampen nach oben gehen und auf den Plenarsaal schauen. Das war Fosters Idee: Die Menschen sollen ihren Politikern von oben zuschauen — Transparenz der Demokratie!">
   <div class="s8-img asc">
-    <!-- FOTO J: Medienhafen Düsseldorf -->
-    <img src="https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9504.jpeg" class="ph" alt="Medienhafen" onerror="this.parentElement.style.background='#c09830'">
-    <div class="cap" style="color:rgba(15,14,12,.35)">Medienhafen Düsseldorf · Frank Gehry · 1999</div>
+    <img src="https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9516.jpeg" class="ph" alt="Reichstag Berlin" onerror="this.parentElement.style.background='#1a1816'">
+    <div class="s8-img-ov"></div>
+    <div class="s8-badge">Berlin · 1999</div>
   </div>
-  <div class="s8-txt">
-    <div class="s8-ey a2">Nordrhein-Westfalen · Düsseldorf</div>
-    <div class="s8-h a3">Medienhafen<br><em>Düsseldorf</em></div>
-    <div class="s8-rule a3"></div>
-    <ul class="s8-list a4">
-      <li>Früher: alter Hafen — Heute: <strong>modernes Stadtviertel</strong></li>
-      <li><strong>Frank Gehry</strong> — 3 Häuser mit schiefen Wänden</li>
-      <li>Am Anfang unbeliebt — heute <strong>Ikone der Stadt</strong></li>
-    </ul>
+  <div class="s8-bottom">
+    <div class="s8-col a2" style="border-right:none">
+      <div class="s8-tag" style="color:#1a8c78">Berlin · Norman Foster · 1999</div>
+      <div class="s8-cn">Reichstag — Die Glaskuppel</div>
+      <div class="s8-cs">23 m hoch · 40 m breit · 3.000 Glaspaneele. Zwei Rampen führen nach oben — Besucher schauen auf den Plenarsaal. Symbol für Transparenz der Demokratie.
+        <br><button id="rb2" style="margin-top:10px;background:rgba(26,140,120,.85);border:none;color:#fff;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.15em;padding:7px 14px;cursor:pointer;text-transform:uppercase;border-radius:2px">+ Kuppel innen sehen</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -516,6 +514,15 @@ if(hb2){
   hb2.addEventListener('click',function(e){
     e.stopPropagation();
     showLb('https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9501.png');
+  });
+}
+
+/* Tlačítko Reichstag — kuppel innen */
+var rb2=document.getElementById('rb2');
+if(rb2){
+  rb2.addEventListener('click',function(e){
+    e.stopPropagation();
+    showLb('https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9517.jpeg');
   });
 }
 })();
