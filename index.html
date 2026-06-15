@@ -41,59 +41,21 @@ html,body{
 @keyframes scl{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:scale(1)}}
 .ph{width:100%;height:100%;object-fit:cover;display:block}
 .cap{position:absolute;bottom:0;left:0;right:0;padding:10px 18px;background:linear-gradient(transparent,rgba(15,14,12,.75));font-family:'Courier New',monospace;font-size:8px;letter-spacing:.14em;color:rgba(240,235,226,.5);text-transform:uppercase}
-
-/* ══ COUNTER ANIMATION ══ */
 .s2-pv[data-target]{transition:none}
-
-/* ══ TOOLTIP on grid cards ══ */
 .s7c{position:relative}
-.bl-tip{
-  position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
-  background:#1e1c18;border:1px solid rgba(232,87,42,.3);
-  color:#f0ebe2;font-family:'Courier New',monospace;font-size:9px;
-  letter-spacing:.08em;line-height:1.6;padding:8px 12px;
-  white-space:nowrap;pointer-events:none;
-  opacity:0;transition:opacity .2s;z-index:100;
-  box-shadow:0 8px 24px rgba(0,0,0,.4);
-}
-.bl-tip::after{
-  content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);
-  border:5px solid transparent;border-top-color:#1e1c18;
-}
+.bl-tip{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#1e1c18;border:1px solid rgba(232,87,42,.3);color:#f0ebe2;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.08em;line-height:1.6;padding:8px 12px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .2s;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.bl-tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#1e1c18}
 .s7c:hover .bl-tip{opacity:1}
-
-/* ══ KEYBOARD HELP POPUP ══ */
-#khelp{
-  position:fixed;inset:0;z-index:99998;display:none;
-  align-items:center;justify-content:center;
-  background:rgba(0,0,0,.7);
-}
+#khelp{position:fixed;inset:0;z-index:99998;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.7)}
 #khelp.open{display:flex}
-#khelp-box{
-  background:#1e1c18;border:1px solid rgba(232,87,42,.2);
-  padding:32px 40px;min-width:300px;
-  box-shadow:0 30px 80px rgba(0,0,0,.6);
-}
-#khelp-box h3{
-  font-family:'Courier New',monospace;font-size:10px;letter-spacing:.3em;
-  color:#e8572a;text-transform:uppercase;margin-bottom:20px;
-}
+#khelp-box{background:#1e1c18;border:1px solid rgba(232,87,42,.2);padding:32px 40px;min-width:300px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+#khelp-box h3{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.3em;color:#e8572a;text-transform:uppercase;margin-bottom:20px}
 .krow{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05)}
 .krow:last-child{border-bottom:none}
-.kkey{
-  font-family:'Courier New',monospace;font-size:11px;
-  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
-  padding:3px 10px;color:#f0ebe2;
-}
+.kkey{font-family:'Courier New',monospace;font-size:11px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:3px 10px;color:#f0ebe2}
 .kdesc{font-size:12px;color:rgba(240,235,226,.45);font-family:Georgia,serif}
-#khelp-close{
-  margin-top:20px;width:100%;background:none;border:1px solid rgba(232,87,42,.3);
-  color:#e8572a;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.15em;
-  padding:9px;cursor:pointer;text-transform:uppercase;transition:all .2s;
-}
+#khelp-close{margin-top:20px;width:100%;background:none;border:1px solid rgba(232,87,42,.3);color:#e8572a;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.15em;padding:9px;cursor:pointer;text-transform:uppercase;transition:all .2s}
 #khelp-close:hover{background:rgba(232,87,42,.1)}
-
-/* ══ TIMELINE SLIDE ══ */
 .s-tl{background:#0f0e0c;align-items:center;justify-content:center;flex-direction:column;padding:0 6vw;overflow:hidden}
 .tl-title{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.28em;color:#e8572a;text-transform:uppercase;margin-bottom:40px}
 .tl-track{position:relative;width:100%;max-width:900px}
@@ -102,57 +64,26 @@ html,body{
 .tl-line.anim::after{width:100%}
 .tl-items{display:flex;justify-content:space-between;position:relative;margin-top:-1px}
 .tl-item{display:flex;flex-direction:column;align-items:center;cursor:pointer;flex:1}
-.tl-dot{
-  width:14px;height:14px;border-radius:50%;background:#1e1c18;
-  border:2px solid rgba(240,235,226,.2);
-  transition:all .25s;margin-bottom:14px;position:relative;z-index:1;
-  flex-shrink:0;
-}
+.tl-dot{width:14px;height:14px;border-radius:50%;background:#1e1c18;border:2px solid rgba(240,235,226,.2);transition:all .25s;margin-bottom:14px;position:relative;z-index:1;flex-shrink:0}
 .tl-item:hover .tl-dot,.tl-item.active .tl-dot{border-color:#e8572a;background:#e8572a;box-shadow:0 0 12px rgba(232,87,42,.5)}
 .tl-year{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.1em;color:rgba(240,235,226,.35);margin-bottom:6px;transition:color .2s}
 .tl-item:hover .tl-year,.tl-item.active .tl-year{color:#e8572a}
 .tl-name{font-size:11px;font-weight:700;color:rgba(240,235,226,.6);text-align:center;line-height:1.3;max-width:90px;transition:color .2s}
 .tl-item:hover .tl-name,.tl-item.active .tl-name{color:#f0ebe2}
-.tl-detail{
-  margin-top:40px;max-width:500px;text-align:center;
-  min-height:70px;
-}
+.tl-detail{margin-top:40px;max-width:500px;text-align:center;min-height:70px}
 .tl-detail-yr{font-size:clamp(36px,5vw,64px);font-weight:900;font-style:italic;color:#e8572a;line-height:1;margin-bottom:10px}
 .tl-detail-txt{font-size:13px;color:rgba(240,235,226,.5);font-family:Georgia,serif;line-height:1.7}
-
-/* ══ COMPARISON SLIDER ══ */
 .s-cmp{background:#0f0e0c;position:relative;overflow:hidden;cursor:ew-resize}
 .cmp-before,.cmp-after{position:absolute;inset:0;overflow:hidden}
 .cmp-before img,.cmp-after img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .cmp-after{clip-path:inset(0 50% 0 0);transition:clip-path 0s}
-.cmp-handle{
-  position:absolute;top:0;bottom:0;left:50%;width:3px;
-  background:#e8572a;transform:translateX(-50%);cursor:ew-resize;z-index:10;
-}
-.cmp-handle::before,.cmp-handle::after{
-  content:'';position:absolute;left:50%;transform:translateX(-50%);
-  width:36px;height:36px;border-radius:50%;background:#e8572a;top:calc(50% - 18px);
-  display:flex;align-items:center;justify-content:center;
-}
-.cmp-handle::after{
-  content:'◀ ▶';font-size:10px;color:#0f0e0c;font-weight:900;
-  display:flex;align-items:center;justify-content:center;line-height:36px;
-  text-align:center;
-}
-.cmp-label-l,.cmp-label-r{
-  position:absolute;bottom:20px;font-family:'Courier New',monospace;
-  font-size:9px;letter-spacing:.2em;text-transform:uppercase;
-  background:rgba(15,14,12,.7);padding:5px 12px;color:rgba(240,235,226,.6);z-index:5;
-}
+.cmp-handle{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#e8572a;transform:translateX(-50%);cursor:ew-resize;z-index:10}
+.cmp-handle::before,.cmp-handle::after{content:'';position:absolute;left:50%;transform:translateX(-50%);width:36px;height:36px;border-radius:50%;background:#e8572a;top:calc(50% - 18px);display:flex;align-items:center;justify-content:center}
+.cmp-handle::after{content:'◀ ▶';font-size:10px;color:#0f0e0c;font-weight:900;display:flex;align-items:center;justify-content:center;line-height:36px;text-align:center}
+.cmp-label-l,.cmp-label-r{position:absolute;bottom:20px;font-family:'Courier New',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;background:rgba(15,14,12,.7);padding:5px 12px;color:rgba(240,235,226,.6);z-index:5}
 .cmp-label-l{left:20px}
 .cmp-label-r{right:20px}
-.cmp-title{
-  position:absolute;top:24px;left:50%;transform:translateX(-50%);
-  font-family:'Courier New',monospace;font-size:9px;letter-spacing:.25em;
-  color:#e8572a;text-transform:uppercase;z-index:10;white-space:nowrap;
-}
-
-/* ══ GERMANY MAP ══ */
+.cmp-title{position:absolute;top:24px;left:50%;transform:translateX(-50%);font-family:'Courier New',monospace;font-size:9px;letter-spacing:.25em;color:#e8572a;text-transform:uppercase;z-index:10;white-space:nowrap}
 .s-map{background:#0f0e0c;flex-direction:row;align-items:stretch}
 .map-l{width:42%;display:flex;flex-direction:column;justify-content:center;padding:40px 4vw 40px 7vw}
 .map-r{flex:1;display:flex;align-items:center;justify-content:center;padding:20px;position:relative}
@@ -170,20 +101,10 @@ svg.de-map .state:hover{fill:rgba(232,87,42,.2);stroke:#e8572a}
 svg.de-map .state.lit{fill:rgba(232,87,42,.35);stroke:#e8572a}
 svg.de-map .state-dot{fill:#e8572a;opacity:0;transition:opacity .3s}
 svg.de-map .state.lit .state-dot{opacity:1}
-
-/* ══ FULLSCREEN MODE ══ */
 body.fs-mode #htl,body.fs-mode #htr,body.fs-mode #hbl,body.fs-mode #notes{opacity:0;pointer-events:none;transition:opacity .3s}
 body.fs-mode #prog{opacity:0}
-#fs-btn{
-  position:fixed;bottom:18px;right:20px;z-index:9998;
-  background:none;border:1px solid rgba(240,235,226,.12);
-  color:rgba(240,235,226,.25);font-family:'Courier New',monospace;
-  font-size:9px;letter-spacing:.1em;padding:6px 12px;cursor:pointer;
-  text-transform:uppercase;transition:all .2s;
-}
+#fs-btn{position:fixed;bottom:18px;right:20px;z-index:9998;background:none;border:1px solid rgba(240,235,226,.12);color:rgba(240,235,226,.25);font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;padding:6px 12px;cursor:pointer;text-transform:uppercase;transition:all .2s}
 #fs-btn:hover{border-color:#e8572a;color:#e8572a}
-
-/* ══ PARALLAX TITLE ══ */
 .s1-bg img{will-change:transform;-webkit-transform:scale(1.08) translate3d(0,0,0);transform:scale(1.08) translate3d(0,0,0);transition:transform 8s cubic-bezier(.25,.46,.45,.94)}
 .s1.active .s1-bg img{-webkit-transform:scale(1) translate3d(0,-2%,0);transform:scale(1) translate3d(0,-2%,0)}
 .s1{background:#0f0e0c}
@@ -198,8 +119,6 @@ body.fs-mode #prog{opacity:0}
 .s1-h1 em{font-style:normal;display:block;color:#d4a843}
 .s1-rule{width:50px;height:3px;background:#e8572a;margin:26px 0}
 .s1-names{font-size:14px;color:rgba(240,235,226,.45);letter-spacing:.04em}
-
-/* ── 02 ELBPHILHARMONIE ── */
 .s2{flex-direction:row;background:#0f0e0c}
 .s2-l{width:46%;display:flex;flex-direction:column;justify-content:center;padding:44px 4vw 44px 8vw;background:#1e1c18;border-right:1px solid rgba(232,87,42,.12)}
 .s2-r{flex:1;display:grid;grid-template-rows:60% 40%;gap:3px;background:#0f0e0c}
@@ -218,8 +137,6 @@ body.fs-mode #prog{opacity:0}
 .wp{stroke-dasharray:800;stroke-dashoffset:800}
 .wp.go{animation:dw 2.2s cubic-bezier(.4,0,.2,1) forwards;-webkit-animation:dw 2.2s cubic-bezier(.4,0,.2,1) forwards}
 @keyframes dw{to{stroke-dashoffset:0}}
-
-/* ── 03 BAUHAUS BREAK ── */
 .s3{flex-direction:row;background:#f0ebe2;color:#0f0e0c}
 .s3-l{width:50%;display:flex;flex-direction:column;justify-content:flex-end;padding:0 5vw 8vh 8vw;background:#e8572a;position:relative;overflow:hidden}
 .s3-bg-ch{position:absolute;font-size:clamp(180px,28vw,340px);font-weight:900;color:rgba(15,14,12,.1);line-height:.85;bottom:-30px;left:-15px;letter-spacing:-.05em;pointer-events:none}
@@ -228,8 +145,6 @@ body.fs-mode #prog{opacity:0}
 .s3-h em{font-style:italic}
 .s3-sub{margin-top:14px;font-size:13px;color:rgba(15,14,12,.55);line-height:1.6;max-width:300px;font-family:Georgia,serif;position:relative;z-index:1}
 .s3-r{flex:1;position:relative;overflow:hidden;background:#e8e0d0}
-
-/* ── 04 BAUHAUS INHALT ── */
 .s4{flex-direction:row;background:#f0ebe2;color:#0f0e0c}
 .s4-img{width:52%;position:relative;overflow:hidden;background:#e8e0d0}
 .s4-txt{flex:1;display:flex;flex-direction:column;justify-content:center;padding:50px 6vw 50px 5vw;position:relative}
@@ -242,8 +157,6 @@ body.fs-mode #prog{opacity:0}
 .s4-list li{display:flex;align-items:baseline;gap:10px;font-size:13px;color:#5a5248;font-family:Georgia,serif;line-height:1.55;word-break:keep-all;hyphens:none}
 .s4-list li::before{content:'';min-width:8px;width:8px;height:8px;background:#e8572a;border-radius:50%;margin-top:5px;flex-shrink:0}
 .s4-list li strong{color:#0f0e0c;font-weight:700;white-space:nowrap}
-
-/* ── 05 BMW/MERCEDES STACKED ── */
 .s5{flex-direction:column;background:#0f0e0c}
 .s5-img{flex:1;position:relative;overflow:hidden;background:#1a1816}
 .s5-img-ov{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(15,14,12,.95) 100%)}
@@ -256,8 +169,6 @@ body.fs-mode #prog{opacity:0}
 .s5-col:nth-child(2) .s5-tag{color:#1a8c78}
 .s5-cn{font-size:clamp(16px,2vw,23px);font-weight:900;color:#f0ebe2;margin-bottom:6px;letter-spacing:-.01em}
 .s5-cs{font-size:12px;color:rgba(240,235,226,.38);font-style:italic;font-family:Georgia,serif;line-height:1.6}
-
-/* ── 06 BERLIN 3 CARDS ── */
 .s6{flex-direction:row;background:#0f0e0c;gap:3px}
 .s6c{flex:1;position:relative;overflow:hidden;background:#1a1816}
 .s6c img{width:100%;height:100%;object-fit:cover;display:block;opacity:.55;transition:opacity .3s}
@@ -274,8 +185,6 @@ body.fs-mode #prog{opacity:0}
 .s6c:nth-child(3) .s6c-tag{color:#d4a843}
 .s6c-title{font-size:clamp(14px,1.7vw,22px);font-weight:900;color:#f0ebe2;line-height:1.15;margin-bottom:5px;letter-spacing:-.01em}
 .s6c-sub{font-size:11px;color:rgba(240,235,226,.42);font-style:italic;font-family:Georgia,serif;line-height:1.5}
-
-/* ── 07 OZEANEUM ── */
 .s7{flex-direction:row;background:#f0ebe2;color:#0f0e0c}
 .s7-img{width:54%;position:relative;overflow:hidden;background:#e8e0d0}
 .s7-txt{flex:1;display:flex;flex-direction:column;justify-content:center;padding:50px 6vw 50px 5vw;position:relative}
@@ -288,8 +197,6 @@ body.fs-mode #prog{opacity:0}
 .s7-list li{display:grid;grid-template-columns:8px 1fr;gap:10px;font-size:13px;color:#5a5248;font-family:Georgia,serif;line-height:1.55}
 .s7-list li::before{content:'';width:8px;height:8px;background:#1a8c78;border-radius:50%;margin-top:5px;flex-shrink:0}
 .s7-list li strong{color:#0f0e0c;font-weight:700}
-
-/* ── 08 MEDIENHAFEN ── */
 .s8{flex-direction:column;background:#0f0e0c}
 .s8-img{flex:1;position:relative;overflow:hidden;background:#1a1816}
 .s8-img-ov{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(15,14,12,.95) 100%)}
@@ -300,8 +207,6 @@ body.fs-mode #prog{opacity:0}
 .s8-tag{font-family:'Courier New',monospace;font-size:8px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px;color:#1a8c78}
 .s8-cn{font-size:clamp(16px,2vw,23px);font-weight:900;color:#f0ebe2;margin-bottom:6px;letter-spacing:-.01em}
 .s8-cs{font-size:12px;color:rgba(240,235,226,.38);font-style:italic;font-family:Georgia,serif;line-height:1.6}
-
-/* ── 09 VÖLKLINGER HÜTTE ── */
 .s9{flex-direction:row;background:#0f0e0c}
 .s9-img{width:55%;position:relative;overflow:hidden;background:#1a1816}
 .s9-txt{flex:1;display:flex;flex-direction:column;justify-content:center;padding:50px 6vw 50px 5vw;border-left:1px solid rgba(123,108,173,.2)}
@@ -313,8 +218,6 @@ body.fs-mode #prog{opacity:0}
 .s9-list li{display:grid;grid-template-columns:8px 1fr;gap:10px;font-size:13px;color:rgba(240,235,226,.5);font-family:Georgia,serif;line-height:1.55}
 .s9-list li::before{content:'';width:8px;height:8px;background:#7b6cad;border-radius:50%;margin-top:5px;flex-shrink:0}
 .s9-list li strong{color:#f0ebe2;font-weight:700}
-
-/* ── 10 END ── */
 .s10{background:#0f0e0c;position:relative;align-items:center;justify-content:center;text-align:center}
 .s10-bg{position:absolute;inset:0}
 .s10-grad{position:absolute;inset:0;background:rgba(15,14,12,.65)}
@@ -325,13 +228,49 @@ body.fs-mode #prog{opacity:0}
 .s10-rule{width:60px;height:3px;background:#e8572a;margin:28px auto}
 .s10-body{font-size:clamp(15px,1.8vw,20px);color:rgba(240,235,226,.45);max-width:580px;line-height:1.8;font-style:italic;font-family:Georgia,serif}
 .s10-names{margin-top:52px;font-family:'Courier New',monospace;font-size:11px;letter-spacing:.22em;color:rgba(240,235,226,.2);text-transform:uppercase}
+
+/* ── NEUE SLIDES: STAATSOPER + VERGLEICH ── */
+.sneu{flex-direction:row;background:#0f0e0c}
+.sneu-l{width:46%;display:flex;flex-direction:column;justify-content:center;padding:44px 4vw 44px 8vw;background:#1a1512;border-right:1px solid rgba(232,87,42,.12)}
+.sneu-r{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:3px;background:#0a0908}
+.sneu-ph{position:relative;overflow:hidden;background:#1a1816}
+.sneu-ph img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85;transition:opacity .3s}
+.sneu-ph:hover img{opacity:1}
+.sneu-ey{font-family:'Courier New',monospace;font-size:9px;letter-spacing:.25em;color:#e8572a;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.sneu-ey::before{content:'★';font-size:9px}
+.sneu-h{font-size:clamp(22px,3.2vw,46px);font-weight:900;color:#f0ebe2;line-height:.96;letter-spacing:-.03em;margin-bottom:14px}
+.sneu-body{font-size:13px;line-height:1.8;color:rgba(240,235,226,.48);font-family:Georgia,serif;max-width:320px}
+.sneu-pills{display:flex;gap:0;margin-top:16px;border:1px solid rgba(240,235,226,.1)}
+.sneu-pill{flex:1;padding:8px 4px;border-right:1px solid rgba(240,235,226,.08);text-align:center}
+.sneu-pill:last-child{border-right:none}
+.sneu-pv{font-size:14px;font-weight:900;color:#e8572a;line-height:1}
+.sneu-pk{font-family:'Courier New',monospace;font-size:7px;letter-spacing:.1em;color:rgba(240,235,226,.22);text-transform:uppercase;margin-top:3px}
+
+/* VERGLEICH SLIDE */
+.scmp2{flex-direction:row;background:#0f0e0c;gap:3px}
+.scmp2-col{flex:1;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.scmp2-img{flex:1;position:relative;overflow:hidden;background:#1a1816}
+.scmp2-img img{width:100%;height:100%;object-fit:cover;display:block;opacity:.75;transition:opacity .3s}
+.scmp2-col:hover .scmp2-img img{opacity:.9}
+.scmp2-img-ov{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(15,14,12,.97) 100%)}
+.scmp2-info{padding:20px 22px 22px;background:#0f0e0c;border-top:1px solid rgba(240,235,226,.06)}
+.scmp2-tag{font-family:'Courier New',monospace;font-size:8px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:8px}
+.scmp2-col:nth-child(1) .scmp2-tag{color:#e8572a}
+.scmp2-col:nth-child(3) .scmp2-tag{color:#d4a843}
+.scmp2-title{font-size:clamp(14px,1.6vw,20px);font-weight:900;color:#f0ebe2;line-height:1.15;margin-bottom:5px}
+.scmp2-sub{font-size:11px;color:rgba(240,235,226,.4);font-style:italic;font-family:Georgia,serif;line-height:1.5;margin-bottom:10px}
+.scmp2-facts{display:flex;flex-direction:column;gap:4px}
+.scmp2-fact{font-family:'Courier New',monospace;font-size:9px;color:rgba(240,235,226,.3);letter-spacing:.05em}
+.scmp2-fact span{color:rgba(240,235,226,.65)}
+.scmp2-div{width:3px;background:#1a1816;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;flex-shrink:0}
+.scmp2-vs{font-family:'Courier New',monospace;font-size:8px;letter-spacing:.2em;color:#e8572a;text-transform:uppercase;writing-mode:vertical-rl;padding:10px 0}
 </style>
 </head>
 <body>
 
 <div id="prog"></div>
 <div id="htl">⏱ 00:00</div>
-<div id="htr">01 / 11</div>
+<div id="htr">01 / 13</div>
 <div id="hbl">
   <button class="hb" id="bp">← Zurück</button>
   <button class="hb" id="bn">Weiter →</button>
@@ -341,7 +280,6 @@ body.fs-mode #prog{opacity:0}
 <button id="fs-btn">⛶ Vollbild</button>
 <div id="notes"><div id="nl">Sprechernotizen</div><div id="nt"></div></div>
 
-<!-- KEYBOARD HELP -->
 <div id="khelp">
   <div id="khelp-box">
     <h3>Tastaturkürzel</h3>
@@ -356,7 +294,6 @@ body.fs-mode #prog{opacity:0}
   </div>
 </div>
 
-<!-- CLICK SOUND -->
 <audio id="snd-click" preload="auto">
   <source src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=" type="audio/wav">
 </audio>
@@ -401,19 +338,91 @@ body.fs-mode #prog{opacity:0}
   </div>
   <div class="s2-r af">
     <div class="s2-ph">
-      <!-- FOTO A: Elbphilharmonie Außenansicht -->
       <img src="https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9507.jpeg" class="ph" alt="Elbphilharmonie Schnitt" onerror="this.style.opacity=0">
       <div class="cap">Querschnitt · Innenstruktur der Elbphilharmonie</div>
     </div>
     <div class="s2-ph">
-      <!-- FOTO B: Elbphilharmonie Innenraum -->
       <img src="https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9494.jpeg" class="ph" alt="Innenraum" onerror="this.style.opacity=0">
       <div class="cap">Innenraum · Großer Saal · 10.000 Gipsplatten</div>
     </div>
   </div>
 </div>
 
-<!-- 03 BAUHAUS BREAK -->
+<!-- 03 NEUE HAMBURGER STAATSOPER (BIG) -->
+<div class="s sneu" data-n="Und Hamburg baut schon das nächste Jahrhundertprojekt! Die neue Hamburgische Staatsoper auf der Halbinsel Baakenhöft — entworfen vom dänischen Büro BIG, Bjarke Ingels Group. Das Konzept: konzentrische Terrassen wie Schallwellen im Wasser, direkt an der Elbe. Spannend: BIG hat gleichzeitig auch die neue Vltavská Filharmonie in Prag gewonnen! Derselbe Architekt — zwei Städte, zwei Konzerthäuser. [Geplante Eröffnung Ende 2020er Jahre, finanziert von der Kühne-Stiftung.]">
+  <div class="sneu-l">
+    <div class="sneu-ey a1">Hamburg · BIG · 2020er</div>
+    <div class="sneu-h a2">Neue Hamburger<br>Staatsoper</div>
+    <div class="sneu-body a3">Spiralförmige Terrassen wie Schallwellen — direkt an der Elbe. Architekt: <strong style="color:#f0ebe2">Bjarke Ingels Group</strong> (BIG, Kopenhagen). Öffentlicher Dachpark für alle.</div>
+    <div class="sneu-pills a4">
+      <div class="sneu-pill"><div class="sneu-pv">45.000</div><div class="sneu-pk">m² Fläche</div></div>
+      <div class="sneu-pill"><div class="sneu-pv">BIG</div><div class="sneu-pk">Architekt</div></div>
+      <div class="sneu-pill"><div class="sneu-pv">360°</div><div class="sneu-pk">Dachpark</div></div>
+      <div class="sneu-pill"><div class="sneu-pv">Elbe</div><div class="sneu-pk">Lage</div></div>
+    </div>
+  </div>
+  <div class="sneu-r af">
+    <div class="sneu-ph">
+      <img src="images/IMG_9555.JPG" alt="Staatsoper Hamburg Außen Tag" onerror="this.style.opacity=0">
+      <div class="cap">Außenansicht · Terrassen am Wasser</div>
+    </div>
+    <div class="sneu-ph">
+      <img src="images/IMG_9558.JPG" alt="Staatsoper Hamburg Nacht" onerror="this.style.opacity=0">
+      <div class="cap">Nachtansicht · Beleuchtete Terrassen</div>
+    </div>
+    <div class="sneu-ph">
+      <img src="images/IMG_9557.JPG" alt="Staatsoper Hamburg Foyer" onerror="this.style.opacity=0">
+      <div class="cap">Foyer · Spiraltreppe innen</div>
+    </div>
+    <div class="sneu-ph">
+      <img src="images/IMG_9556.JPG" alt="Staatsoper Hamburg Saal" onerror="this.style.opacity=0">
+      <div class="cap">Großer Saal · Holzlamellen-Akustik</div>
+    </div>
+  </div>
+</div>
+
+<!-- 04 VERGLEICH: STAATSOPER HAMBURG vs. VLTAVSKÁ FILHARMONIE -->
+<div class="s scmp2" data-n="Das ist der überraschendste Moment unserer Präsentation — beide Gebäude hat dasselbe Büro entworfen: BIG, Bjarke Ingels Group! Die neue Hamburger Staatsoper an der Elbe und die Vltavská Filharmonie in Prag an der Moldau. Beide sind öffentliche Parks UND Konzerthäuser. Beide haben Terrassen-Silhouetten am Fluss. Beide werden in den 2030er Jahren eröffnet. Bjarke Ingels baut gerade zwei der wichtigsten Konzerthäuser Europas gleichzeitig!">
+  <div class="scmp2-col">
+    <div class="scmp2-img">
+      <img src="images/IMG_9553.JPG" alt="Staatsoper Hamburg Vogelperspektive" onerror="this.style.opacity=0">
+      <div class="scmp2-img-ov"></div>
+    </div>
+    <div class="scmp2-info">
+      <div class="scmp2-tag">Hamburg · Deutschland</div>
+      <div class="scmp2-title">Neue Hamburger Staatsoper</div>
+      <div class="scmp2-sub">BIG · Bjarke Ingels Group · Baakenhöft</div>
+      <div class="scmp2-facts">
+        <div class="scmp2-fact">Fluss: <span>Elbe</span></div>
+        <div class="scmp2-fact">Fläche: <span>45.000 m²</span></div>
+        <div class="scmp2-fact">Eröffnung: <span>~2030er</span></div>
+        <div class="scmp2-fact">Finanz.: <span>Kühne-Stiftung</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="scmp2-div">
+    <div class="scmp2-vs">BIG · BIG · BIG</div>
+  </div>
+  <div class="scmp2-col">
+    <div class="scmp2-img">
+      <img src="images/IMG_9559.JPG" alt="Vltavská Filharmonie Praha" onerror="this.style.opacity=0">
+      <div class="scmp2-img-ov"></div>
+    </div>
+    <div class="scmp2-info">
+      <div class="scmp2-tag" style="color:#d4a843">Praha · Tschechien</div>
+      <div class="scmp2-title">Vltavská Filharmonie</div>
+      <div class="scmp2-sub">BIG · Bjarke Ingels Group · Vltavská</div>
+      <div class="scmp2-facts">
+        <div class="scmp2-fact">Fluss: <span>Vltava (Moldau)</span></div>
+        <div class="scmp2-fact">Fläche: <span>~80.000 m²</span></div>
+        <div class="scmp2-fact">Eröffnung: <span>2032</span></div>
+        <div class="scmp2-fact">Finanz.: <span>Stadt Praha · 12 Mrd. CZK</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 05 BAUHAUS BREAK -->
 <div class="s s3" data-n="Jetzt kommen wir zum Bauhaus. Das Bauhaus wurde 1919 in Weimar gegründet — nicht in Berlin! Es hat das moderne Design erfunden. Das Motto: Form follows function — ein Gebäude muss zuerst praktisch sein.">
   <div class="s3-l">
     <div class="s3-bg-ch">B</div>
@@ -422,16 +431,14 @@ body.fs-mode #prog{opacity:0}
     <div class="s3-sub a3">„Form follows function" — die Schule, die die Welt verändert hat. Gegründet 1919 in Weimar.</div>
   </div>
   <div class="s3-r asc">
-    <!-- FOTO C: Bauhaus Dessau Hauptgebäude -->
     <img src="https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9495.jpeg" class="ph" alt="Bauhaus Dessau" onerror="this.style.opacity=0">
     <div class="cap">Bauhaus Dessau · Walter Gropius · 1925</div>
   </div>
 </div>
 
-<!-- 04 BAUHAUS INHALT -->
+<!-- 06 BAUHAUS INHALT -->
 <div class="s s4" data-n="Das Bauhaus wurde 1919 in Weimar gegründet — nicht in Berlin! Bekannte Lehrer waren Klee und Kandinsky. Das Motto: Form follows function. Heute ist das Bauhaus UNESCO-Welterbe.">
   <div class="s4-img asc">
-    <!-- FOTO D: Walter Gropius Porträt -->
     <img src="https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9496.png" class="ph" alt="Walter Gropius" onerror="this.parentElement.style.background='#e0d4c0'">
     <div class="cap" style="color:rgba(15,14,12,.35)">Walter Gropius — Gründer des Bauhauses · 1919</div>
   </div>
@@ -449,10 +456,9 @@ body.fs-mode #prog{opacity:0}
   </div>
 </div>
 
-<!-- 05 BMW + MERCEDES -->
+<!-- 07 BMW + MERCEDES -->
 <div class="s s5" data-n="Zwei sehr besondere Gebäude für Autos. BMW Welt München 2007 — das Dach hat keine geraden Winkel, es sieht aus wie eine Wolke aus Stahl und Glas. Mercedes Museum Stuttgart 2006 — die Form ist wie eine DNA-Doppelhelix, man geht spiralförmig durch 130 Jahre Geschichte.">
   <div class="s5-img af">
-    <!-- FOTO E: BMW Welt München -->
     <img src="https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9497.jpeg" class="ph" alt="BMW Welt" onerror="this.style.opacity=0">
     <div class="s5-img-ov"></div>
     <div class="s5-badge">Bayern &amp; Baden-Württemberg</div>
@@ -466,24 +472,12 @@ body.fs-mode #prog{opacity:0}
   </div>
 </div>
 
-<!-- 06 BERLIN -->
-<div class="s s6" data-n="Berlin hat drei sehr interessante Gebäude. Berliner Philharmonie 1963 — zum ersten Mal sitzt das Publikum rund um das Orchester. Jüdisches Museum 2001 — Zickzack-Form zeigt Schmerz und Geschichte. Humboldt Forum 2021 — altes Schloss mit modernem Inneren.">
+<!-- 08 BERLIN -->
+<div class="s s6" data-n="Berlin hat zwei sehr interessante Gebäude. Jüdisches Museum 2001 — Zickzack-Form zeigt Schmerz und Geschichte. Humboldt Forum 2021 — altes Schloss mit modernem Inneren.">
   <div class="s6c af">
-    <!-- FOTO F: Berliner Philharmonie -->
-    <img src="https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9498.jpeg" alt="" onerror="this.style.opacity=0">
-    <div class="s6c-grad"></div>
-    <div class="s6c-num">01</div>
-    <div class="s6c-body">
-      <div class="s6c-tag">Berlin · 1963</div>
-      <div class="s6c-title">Berliner Philharmonie</div>
-      <div class="s6c-sub">Publikum rund ums Orchester — Hans Scharoun</div>
-    </div>
-  </div>
-  <div class="s6c af">
-    <!-- FOTO G: Jüdisches Museum Berlin -->
     <img src="https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9499.webp" alt="" onerror="this.style.opacity=0">
     <div class="s6c-grad"></div>
-    <div class="s6c-num">02</div>
+    <div class="s6c-num">01</div>
     <div class="s6c-body">
       <div class="s6c-tag">Berlin · 2001</div>
       <div class="s6c-title">Jüdisches Museum</div>
@@ -491,10 +485,9 @@ body.fs-mode #prog{opacity:0}
     </div>
   </div>
   <div class="s6c af">
-    <!-- FOTO H: Humboldt Forum Berlin -->
     <img src="https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9500.jpeg" alt="" onerror="this.style.background='#2a2420'">
     <div class="s6c-grad"></div>
-    <div class="s6c-num">03</div>
+    <div class="s6c-num">02</div>
     <div class="s6c-body">
       <div class="s6c-tag">Berlin · 2021</div>
       <div class="s6c-title">Humboldt Forum</div>
@@ -504,7 +497,7 @@ body.fs-mode #prog{opacity:0}
   </div>
 </div>
 
-<!-- 08 REICHSTAG -->
+<!-- 09 REICHSTAG -->
 <div class="s s8" data-n="Das Reichstagsgebäude in Berlin ist sehr bekannt. Die Glaskuppel wurde 1999 gebaut — der Architekt ist Sir Norman Foster aus England. Die Kuppel ist 23 Meter hoch und 40 Meter breit. Besucher können auf zwei spiralförmigen Rampen nach oben gehen und auf den Plenarsaal schauen. Das war Fosters Idee: Die Menschen sollen ihren Politikern von oben zuschauen — Transparenz der Demokratie!">
   <div class="s8-img asc">
     <img src="https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9516.jpeg" class="ph" alt="Reichstag Berlin" onerror="this.parentElement.style.background='#1a1816'">
@@ -525,7 +518,7 @@ body.fs-mode #prog{opacity:0}
   </div>
 </div>
 
-<!-- 09 VÖLKLINGER HÜTTE -->
+<!-- 10 VÖLKLINGER HÜTTE -->
 <div class="s s9" data-n="Die Völklinger Hütte im Saarland ist etwas ganz Besonderes. Es ist eine alte Fabrik aus dem 19. Jahrhundert. Heute ist sie UNESCO-Weltkulturerbe — das einzige erhaltene Eisenwerk der Welt aus dieser Zeit. Heute ist sie ein Kulturzentrum und Museum.">
   <div class="s9-img asc">
     <img src="https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9505.jpeg" class="ph" alt="Völklinger Hütte" onerror="this.style.opacity=0">
@@ -544,7 +537,7 @@ body.fs-mode #prog{opacity:0}
   </div>
 </div>
 
-<!-- 10 DANKE -->
+<!-- 11 DANKE -->
 <div class="s s10" data-n="Das war unsere Präsentation! Vielen Dank fürs Zuhören. Habt ihr Fragen?">
   <div class="s10-bg af">
     <img src="https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9506.jpeg" class="ph" alt="" onerror="this.style.opacity=0">
@@ -558,7 +551,7 @@ body.fs-mode #prog{opacity:0}
   </div>
 </div>
 
-<!-- 11 QUELLEN -->
+<!-- 12 QUELLEN -->
 <div class="s" style="background:#0f0e0c;flex-direction:column;padding:52px 8vw;overflow:hidden" data-n="Das sind unsere Quellen. Wir haben im Internet recherchiert. Danke!">
   <div style="font-family:'Courier New',monospace;font-size:9px;letter-spacing:.28em;color:#e8572a;text-transform:uppercase;margin-bottom:18px" class="a1">Quellenverzeichnis</div>
   <div style="font-size:clamp(24px,3.5vw,44px);font-weight:900;color:#f0ebe2;letter-spacing:-.025em;margin-bottom:28px" class="a2">Quellen</div>
@@ -579,59 +572,49 @@ body.fs-mode #prog{opacity:0}
         <li style="font-family:'Courier New',monospace;font-size:10px;color:rgba(240,235,226,.3);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)">Humboldt Forum — <a href="https://www.humboldtforum.org" target="_blank" style="color:#e8572a;text-decoration:none">humboldtforum.org</a></li>
         <li style="font-family:'Courier New',monospace;font-size:10px;color:rgba(240,235,226,.3);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)">Reichstag — <a href="https://www.bundestag.de" target="_blank" style="color:#e8572a;text-decoration:none">bundestag.de</a></li>
         <li style="font-family:'Courier New',monospace;font-size:10px;color:rgba(240,235,226,.3);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)">Völklinger Hütte — <a href="https://www.voelklinger-huette.org" target="_blank" style="color:#e8572a;text-decoration:none">voelklinger-huette.org</a></li>
-        <li style="font-family:'Courier New',monospace;font-size:10px;color:rgba(240,235,226,.3);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)">Fotos — <a href="https://commons.wikimedia.org" target="_blank" style="color:#e8572a;text-decoration:none">Wikimedia Commons</a></li>
-        <li style="font-family:'Courier New',monospace;font-size:10px;color:rgba(240,235,226,.3);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)">Architektenkammer — <a href="https://www.bak.de" target="_blank" style="color:#e8572a;text-decoration:none">bak.de</a></li>
+        <li style="font-family:'Courier New',monospace;font-size:10px;color:rgba(240,235,226,.3);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)">BIG — Hamburger Staatsoper — <a href="https://big.dk" target="_blank" style="color:#e8572a;text-decoration:none">big.dk</a></li>
+        <li style="font-family:'Courier New',monospace;font-size:10px;color:rgba(240,235,226,.3);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)">Vltavská Filharmonie — <a href="https://vltavskafilharmonie.cz" target="_blank" style="color:#e8572a;text-decoration:none">vltavskafilharmonie.cz</a></li>
       </ul>
     </div>
   </div>
 </div>
 
-</div>
+</div><!-- /deck -->
+
 <script>
 (function(){
 'use strict';
 
-/* ══════════════════════════════
-   CLICK SOUND
-══════════════════════════════ */
 var AudioCtx = window.AudioContext || window.webkitAudioContext;
 function playClick(){
-  try {
-    var ctx = new AudioCtx();
-    var osc = ctx.createOscillator();
-    var gain = ctx.createGain();
-    osc.connect(gain); gain.connect(ctx.destination);
-    osc.type = 'sine'; osc.frequency.value = 900;
-    gain.gain.setValueAtTime(0.08, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
-    osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.08);
-  } catch(e){}
+  try{
+    var ctx=new AudioCtx(),osc=ctx.createOscillator(),gain=ctx.createGain();
+    osc.connect(gain);gain.connect(ctx.destination);
+    osc.type='sine';osc.frequency.value=900;
+    gain.gain.setValueAtTime(0.08,ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+0.08);
+    osc.start(ctx.currentTime);osc.stop(ctx.currentTime+0.08);
+  }catch(e){}
 }
 
-/* ══════════════════════════════
-   SLIDES
-══════════════════════════════ */
-var S=document.querySelectorAll('.s'), N=S.length, c=0;
+var S=document.querySelectorAll('#deck > .s'), N=S.length, c=0;
 
 function go(n){
   if(n<0||n>=N)return;
   playClick();
   var p=c;
-  S[p].classList.remove('active'); S[p].classList.add('out');
-  S[n].classList.add('inn'); c=n;
+  S[p].classList.remove('active');S[p].classList.add('out');
+  S[n].classList.add('inn');c=n;
   requestAnimationFrame(function(){requestAnimationFrame(function(){
-    S[c].classList.remove('inn'); S[c].classList.add('active');
+    S[c].classList.remove('inn');S[c].classList.add('active');
     setTimeout(function(){S[p].classList.remove('out')},560);
   })});
   document.getElementById('prog').style.width=((c+1)/N*100)+'%';
   document.getElementById('htr').textContent=(c+1<10?'0':'')+(c+1)+' / '+(N<10?'0':'')+N;
   document.getElementById('nt').textContent=S[c].getAttribute('data-n')||'';
-  /* wave on slide 2 */
   if(c===1){setTimeout(function(){var w=document.getElementById('wp');if(w){w.classList.remove('go');void w.offsetWidth;w.classList.add('go')}},420)}
-  /* counter animation on slide 2 */
-  if(c===1) animateCounters();
-  /* timeline animation */
-  if(S[c].classList.contains('s-tl')){setTimeout(function(){document.querySelector('.tl-line').classList.add('anim')},200)}
+  if(c===1)animateCounters();
+  if(S[c].classList.contains('s-tl')){setTimeout(function(){var tl=document.querySelector('.tl-line');if(tl)tl.classList.add('anim')},200)}
 }
 
 document.getElementById('bn').addEventListener('click',function(){go(c+1)});
@@ -641,95 +624,65 @@ var tx=0;
 document.addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
 document.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50){dx<0?go(c+1):go(c-1)}},{passive:true});
 
-/* ══════════════════════════════
-   KEYBOARD SHORTCUTS
-══════════════════════════════ */
 document.addEventListener('keydown',function(e){
   if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA')return;
   switch(e.key){
-    case 'ArrowRight': case 'ArrowDown': go(c+1); break;
-    case 'ArrowLeft':  case 'ArrowUp':   go(c-1); break;
-    case 'n': case 'N': tN(); break;
-    case 'f': case 'F': toggleFs(); break;
-    case 't': case 'T': tEl.click(); break;
-    case '?': toggleHelp(); break;
-    case 'Escape': hideLb(); closeHelp(); break;
+    case 'ArrowRight':case 'ArrowDown':go(c+1);break;
+    case 'ArrowLeft':case 'ArrowUp':go(c-1);break;
+    case 'n':case 'N':tN();break;
+    case 'f':case 'F':toggleFs();break;
+    case 't':case 'T':tEl.click();break;
+    case '?':toggleHelp();break;
+    case 'Escape':hideLb();closeHelp();break;
   }
 });
 
-/* ══════════════════════════════
-   NOTES
-══════════════════════════════ */
 var no=false;
 function tN(){no=!no;document.getElementById('notes').classList.toggle('open',no)}
 document.getElementById('bno').addEventListener('click',tN);
 
-/* ══════════════════════════════
-   TIMER
-══════════════════════════════ */
-var tEl=document.getElementById('htl'), tr=false, ts=0, ti=null;
+var tEl=document.getElementById('htl'),tr=false,ts=0,ti=null;
 tEl.addEventListener('click',function(e){
   e.stopPropagation();
   if(tr){clearInterval(ti);tr=false;tEl.classList.remove('on')}
   else{ti=setInterval(function(){ts++;var m=Math.floor(ts/60),s=ts%60;tEl.textContent='⏱ '+(m<10?'0':'')+m+':'+(s<10?'0':'')+s},1000);tr=true;tEl.classList.add('on')}
 });
 
-/* ══════════════════════════════
-   FULLSCREEN MODE
-══════════════════════════════ */
 var fsOn=false;
-function toggleFs(){
-  fsOn=!fsOn;
-  document.body.classList.toggle('fs-mode',fsOn);
-  document.getElementById('fs-btn').textContent=fsOn?'✕ HUD anzeigen':'⛶ Vollbild';
-}
+function toggleFs(){fsOn=!fsOn;document.body.classList.toggle('fs-mode',fsOn);document.getElementById('fs-btn').textContent=fsOn?'✕ HUD anzeigen':'⛶ Vollbild'}
 document.getElementById('fs-btn').addEventListener('click',toggleFs);
 
-/* ══════════════════════════════
-   KEYBOARD HELP
-══════════════════════════════ */
 function toggleHelp(){document.getElementById('khelp').classList.toggle('open')}
 function closeHelp(){document.getElementById('khelp').classList.remove('open')}
 document.getElementById('btl').addEventListener('click',toggleHelp);
 document.getElementById('khelp-close').addEventListener('click',closeHelp);
 document.getElementById('khelp').addEventListener('click',function(e){if(e.target===this)closeHelp()});
 
-/* ══════════════════════════════
-   COUNTER ANIMATION (Elb pills)
-══════════════════════════════ */
 var counterDone=false;
 function animateCounters(){
-  if(counterDone)return; counterDone=true;
+  if(counterDone)return;counterDone=true;
   var targets=[
-    {el:null, from:0, to:110, suffix:'m', selector:'.s2-pill:nth-child(1) .s2-pv'},
-    {el:null, from:2010, to:2017, suffix:'', selector:'.s2-pill:nth-child(2) .s2-pv'},
-    {el:null, from:0, to:2100, suffix:'', selector:'.s2-pill:nth-child(3) .s2-pv'},
+    {from:0,to:110,suffix:'m',selector:'.s2-pill:nth-child(1) .s2-pv'},
+    {from:2010,to:2017,suffix:'',selector:'.s2-pill:nth-child(2) .s2-pv'},
+    {from:0,to:2100,suffix:'',selector:'.s2-pill:nth-child(3) .s2-pv'},
   ];
   targets.forEach(function(t){
-    t.el=document.querySelector(t.selector);
-    if(!t.el)return;
-    var start=null, dur=1200;
+    var el=document.querySelector(t.selector);
+    if(!el)return;
+    var start=null,dur=1200;
     function step(ts){
       if(!start)start=ts;
       var prog=Math.min((ts-start)/dur,1);
       var ease=1-Math.pow(1-prog,3);
       var val=Math.round(t.from+(t.to-t.from)*ease);
-      t.el.textContent=(val>=1000?(val/1000).toFixed(1)+'k':val)+t.suffix;
+      el.textContent=(val>=1000?(val/1000).toFixed(1)+'k':val)+t.suffix;
       if(prog<1)requestAnimationFrame(step);
-      else t.el.textContent=t.to>=1000?(t.to/1000).toFixed(1)+'k'+t.suffix:t.to+t.suffix;
+      else el.textContent=t.to>=1000?(t.to/1000).toFixed(1)+'k'+t.suffix:t.to+t.suffix;
     }
     requestAnimationFrame(step);
   });
 }
 
-/* ══════════════════════════════
-   PARALLAX on title
-══════════════════════════════ */
-/* Handled via CSS transition on .s1.active .s1-bg img */
-
-/* ══════════════════════════════
-   LIGHTBOX
-══════════════════════════════ */
 var lb=document.createElement('div');
 lb.id='lb';
 lb.style.cssText='position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;cursor:zoom-out;background:rgba(0,0,0,0);transition:background .35s cubic-bezier(.4,0,.2,1)';
@@ -740,8 +693,7 @@ document.body.appendChild(lb);
 
 function showLb(src){
   playClick();
-  lbImg.src=src;
-  lb.style.display='flex';
+  lbImg.src=src;lb.style.display='flex';
   requestAnimationFrame(function(){requestAnimationFrame(function(){
     lb.style.background='rgba(0,0,0,.93)';
     lbImg.style.opacity='1';
@@ -765,8 +717,9 @@ function addLb(sel){
     img.addEventListener('click',function(e){e.stopPropagation();showLb(img.src)});
   });
 }
-addLb('.s2 img'); addLb('.s3 img'); addLb('.s4 img');
-addLb('.s5-img img'); addLb('.s8 img'); addLb('.s9 img');
+addLb('.s2 img');addLb('.s3 img');addLb('.s4 img');
+addLb('.s5-img img');addLb('.s8 img');addLb('.s9 img');
+addLb('.sneu-ph img');addLb('.scmp2-img img');
 
 document.querySelectorAll('.s6c').forEach(function(card){
   card.style.cursor='zoom-in';
@@ -779,18 +732,9 @@ document.querySelectorAll('.s6c').forEach(function(card){
 
 var hb2=document.getElementById('hb2');
 if(hb2){hb2.addEventListener('click',function(e){e.stopPropagation();showLb('https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9501.png')})}
-
 var rb2=document.getElementById('rb2');
 if(rb2){rb2.addEventListener('click',function(e){e.stopPropagation();showLb('https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9517.jpeg')})}
 
-/* ══════════════════════════════
-   TOOLTIP on grid cards
-══════════════════════════════ */
-/* Handled via CSS :hover — tooltips are in the HTML via .bl-tip divs */
-
-/* ══════════════════════════════
-   INIT
-══════════════════════════════ */
 go(0);
 document.getElementById('prog').style.width=(1/N*100)+'%';
 
