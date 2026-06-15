@@ -264,6 +264,66 @@ body.fs-mode #prog{opacity:0}
 .scmp2-fact span{color:rgba(240,235,226,.65)}
 .scmp2-div{width:3px;background:#1a1816;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;flex-shrink:0}
 .scmp2-vs{font-family:'Courier New',monospace;font-size:8px;letter-spacing:.2em;color:#e8572a;text-transform:uppercase;writing-mode:vertical-rl;padding:10px 0}
+
+/* ══ MAP OVERLAY ══ */
+#map-ov{
+  position:fixed;inset:0;z-index:8000;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(10,9,8,.92);
+  opacity:0;pointer-events:none;
+  transition:opacity .38s cubic-bezier(.4,0,.2,1);
+}
+#map-ov.show{opacity:1}
+#map-box{
+  position:relative;
+  width:min(90vw,520px);
+  display:flex;flex-direction:column;align-items:center;
+}
+#map-label{
+  font-family:'Courier New',monospace;font-size:9px;letter-spacing:.28em;
+  color:#e8572a;text-transform:uppercase;margin-bottom:12px;
+  opacity:0;transform:translateY(-8px);
+  transition:opacity .4s .15s,transform .4s .15s;
+}
+#map-ov.show #map-label{opacity:1;transform:translateY(0)}
+#map-city{
+  font-size:clamp(20px,4vw,36px);font-weight:900;color:#f0ebe2;
+  letter-spacing:-.02em;margin-bottom:3px;
+  opacity:0;transform:translateY(8px);
+  transition:opacity .4s .25s,transform .4s .25s;
+}
+#map-ov.show #map-city{opacity:1;transform:translateY(0)}
+#map-bldg{
+  font-family:Georgia,serif;font-size:12px;color:rgba(240,235,226,.38);
+  font-style:italic;margin-bottom:18px;
+  opacity:0;transition:opacity .4s .35s;
+}
+#map-ov.show #map-bldg{opacity:1}
+#map-svg-wrap{position:relative;width:100%}
+#map-svg-wrap svg{width:100%;height:auto;display:block}
+.mp{
+  position:absolute;
+  transform:translate(-50%,-100%);
+  display:flex;flex-direction:column;align-items:center;
+  pointer-events:none;
+}
+.mp-dot{
+  width:11px;height:11px;border-radius:50%;
+  background:#e8572a;border:2px solid #f0ebe2;
+  opacity:0;
+  transition:opacity .3s;
+}
+.mp-line{
+  width:2px;height:16px;
+  background:linear-gradient(rgba(232,87,42,0),#e8572a);
+  opacity:0;transition:opacity .3s .08s;
+}
+.mp.show .mp-dot{opacity:1;animation:mpulse 1.8s ease-out infinite;-webkit-animation:mpulse 1.8s ease-out infinite}
+.mp.show .mp-line{opacity:1}
+.mp.vis .mp-dot{opacity:.45;background:#4a4540;border-color:rgba(240,235,226,.2);animation:none;-webkit-animation:none}
+.mp.vis .mp-line{opacity:.3;background:linear-gradient(rgba(74,69,64,0),#4a4540)}
+@keyframes mpulse{0%{box-shadow:0 0 0 0 rgba(232,87,42,.6)}65%{box-shadow:0 0 0 9px rgba(232,87,42,0)}100%{box-shadow:0 0 0 0 rgba(232,87,42,0)}}
+@-webkit-keyframes mpulse{0%{-webkit-box-shadow:0 0 0 0 rgba(232,87,42,.6)}65%{-webkit-box-shadow:0 0 0 9px rgba(232,87,42,0)}100%{-webkit-box-shadow:0 0 0 0 rgba(232,87,42,0)}}
 </style>
 </head>
 <body>
@@ -518,25 +578,6 @@ body.fs-mode #prog{opacity:0}
   </div>
 </div>
 
-<!-- 10 VÖLKLINGER HÜTTE -->
-<div class="s s9" data-n="Die Völklinger Hütte im Saarland ist etwas ganz Besonderes. Es ist eine alte Fabrik aus dem 19. Jahrhundert. Heute ist sie UNESCO-Weltkulturerbe — das einzige erhaltene Eisenwerk der Welt aus dieser Zeit. Heute ist sie ein Kulturzentrum und Museum.">
-  <div class="s9-img asc">
-    <img src="https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9505.jpeg" class="ph" alt="Völklinger Hütte" onerror="this.style.opacity=0">
-    <div class="cap">Völklinger Hütte · Saarland · UNESCO-Welterbe seit 1994</div>
-  </div>
-  <div class="s9-txt">
-    <div class="s9-ey a2">Saarland · seit 1994 UNESCO</div>
-    <div class="s9-h a3">Völklinger<br><em>Hütte</em></div>
-    <div class="s9-rule a3"></div>
-    <ul class="s9-list a4">
-      <li>Alte Fabrik aus dem <strong>19. Jahrhundert</strong></li>
-      <li>Einziges erhaltenes <strong>Eisenwerk der Welt</strong></li>
-      <li>Heute: <strong>UNESCO-Weltkulturerbe</strong> &amp; Museum</li>
-      <li>Faszinierende <strong>Industriearchitektur</strong></li>
-    </ul>
-  </div>
-</div>
-
 <!-- 11 DANKE -->
 <div class="s s10" data-n="Das war unsere Präsentation! Vielen Dank fürs Zuhören. Habt ihr Fragen?">
   <div class="s10-bg af">
@@ -614,6 +655,7 @@ function go(n){
   document.getElementById('nt').textContent=S[c].getAttribute('data-n')||'';
   if(c===1){setTimeout(function(){var w=document.getElementById('wp');if(w){w.classList.remove('go');void w.offsetWidth;w.classList.add('go')}},420)}
   if(c===1)animateCounters();
+  setTimeout(function(){showMap(c)},320);
   if(S[c].classList.contains('s-tl')){setTimeout(function(){var tl=document.querySelector('.tl-line');if(tl)tl.classList.add('anim')},200)}
 }
 
@@ -735,10 +777,141 @@ if(hb2){hb2.addEventListener('click',function(e){e.stopPropagation();showLb('htt
 var rb2=document.getElementById('rb2');
 if(rb2){rb2.addEventListener('click',function(e){e.stopPropagation();showLb('https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9517.jpeg')})}
 
+
+/* ══ MAP ══ */
+var mapOv=document.getElementById('map-ov');
+var mapCity=document.getElementById('map-city');
+var mapBldg=document.getElementById('map-bldg');
+var visitedPins={};
+var mapTmo=null;
+// slide index → data (Hamburg jen na slide 1, Stuttgart jen přidáme k mn pinu)
+var MD={
+  1:{city:'Hamburg',bldg:'Elbphilharmonie',pin:'mp-hh'},
+  4:{city:'Weimar · Dessau',bldg:'Bauhaus — Form follows function',pin:'mp-bh'},
+  6:{city:'München · Stuttgart',bldg:'BMW Welt · Mercedes-Benz Museum',pin:'mp-mn',pin2:'mp-st'},
+  7:{city:'Berlin',bldg:'Jüdisches Museum · Humboldt Forum',pin:'mp-be'},
+  8:{city:'Berlin',bldg:'Reichstag — Glaskuppel',pin:'mp-be'}
+};
+function showMap(idx){
+  var d=MD[idx];
+  if(!d)return;
+  if(mapTmo)clearTimeout(mapTmo);
+  // všechny piny reset
+  document.querySelectorAll('.mp').forEach(function(el){el.classList.remove('show')});
+  // visited
+  Object.keys(visitedPins).forEach(function(pid){
+    var el=document.getElementById(pid);
+    if(el){el.classList.remove('show');el.classList.add('vis');var dt=el.querySelector('.mp-dot');if(dt)dt.classList.remove('visited')}
+  });
+  // aktivní
+  function activatePin(pid){
+    var el=document.getElementById(pid);
+    if(!el)return;
+    el.classList.remove('vis');
+    el.classList.add('show');
+  }
+  activatePin(d.pin);
+  if(d.pin2)activatePin(d.pin2);
+  mapCity.textContent=d.city;
+  mapBldg.textContent=d.bldg;
+  mapOv.classList.add('show');
+  mapTmo=setTimeout(function(){
+    mapOv.classList.remove('show');
+    visitedPins[d.pin]=true;
+    if(d.pin2)visitedPins[d.pin2]=true;
+  },2100);
+}
+
 go(0);
 document.getElementById('prog').style.width=(1/N*100)+'%';
 
 })();
 </script>
+
+<!-- MAP OVERLAY -->
+<div id="map-ov">
+  <div id="map-box">
+    <div id="map-label">Standort auf der Karte</div>
+    <div id="map-city">Hamburg</div>
+    <div id="map-bldg">Elbphilharmonie</div>
+    <div id="map-svg-wrap">
+      <!-- Zjednodušená SVG mapa Německa -->
+      <svg viewBox="0 0 400 480" xmlns="http://www.w3.org/2000/svg">
+        <path d="
+          M182,8 L198,6 L218,14 L238,12 L252,20 L268,16 L280,26 L290,22
+          L298,34 L306,30 L314,44 L308,56 L318,68 L322,82 L330,90 L326,104
+          L336,114 L332,128 L340,138 L334,150 L326,156 L320,170 L310,178
+          L306,192 L296,200 L290,214 L280,220 L274,234 L264,242 L258,256
+          L248,262 L244,276 L234,282 L228,298 L218,306 L210,322 L200,330
+          L196,346 L186,354 L180,370 L170,378 L164,394 L156,400 L150,416
+          L142,420 L138,434 L130,438 L124,450 L116,454 L108,466 L100,470
+          L92,462 L84,454 L78,442 L72,430 L66,418 L62,406 L68,394 L74,382
+          L80,370 L76,358 L68,348 L60,338 L54,326 L58,314 L64,302 L70,290
+          L66,278 L58,268 L52,256 L56,244 L64,234 L70,222 L66,210 L58,200
+          L52,188 L56,176 L66,166 L74,154 L78,142 L72,130 L64,120 L60,108
+          L66,96 L76,86 L84,74 L90,62 L98,52 L108,44 L118,38 L130,32
+          L144,24 L158,18 L170,12 L182,8 Z
+        " fill="rgba(240,235,226,.055)" stroke="rgba(240,235,226,.18)" stroke-width="1.5" stroke-linejoin="round"/>
+        <!-- Rhein/Elbe orientační čáry -->
+        <path d="M90,140 Q110,160 130,180 Q150,200 160,230" fill="none" stroke="rgba(240,235,226,.06)" stroke-width="1"/>
+        <path d="M200,80 Q210,110 200,140 Q190,170 195,200" fill="none" stroke="rgba(240,235,226,.06)" stroke-width="1"/>
+      </svg>
+
+      <!-- PINY – polohy v % šířky/výšky obálky -->
+      <!-- Hamburg: sever, mírně vlevo od středu -->
+      <div class="mp" id="mp-hh" style="left:54%;top:16%">
+        <div class="mp-line"></div>
+        <div class="mp-dot"></div>
+      </div>
+      <!-- Dessau/Weimar: střed Německa -->
+      <div class="mp" id="mp-bh" style="left:60%;top:40%">
+        <div class="mp-line"></div>
+        <div class="mp-dot"></div>
+      </div>
+      <!-- München: jih -->
+      <div class="mp" id="mp-mn" style="left:58%;top:78%">
+        <div class="mp-line"></div>
+        <div class="mp-dot"></div>
+      </div>
+      <!-- Stuttgart: jihozápad -->
+      <div class="mp" id="mp-st" style="left:44%;top:72%">
+        <div class="mp-line"></div>
+        <div class="mp-dot"></div>
+      </div>
+      <!-- Berlin: severovýchod -->
+      <div class="mp" id="mp-be" style="left:72%;top:28%">
+        <div class="mp-line"></div>
+        <div class="mp-dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAP OVERLAY -->
+<div id="map-ov">
+  <div id="map-box">
+    <div id="map-label">Standort · Deutschland</div>
+    <div id="map-city">Hamburg</div>
+    <div id="map-bldg">Elbphilharmonie</div>
+    <div id="map-svg-wrap">
+      <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+        <path d="M190,10 L205,8 L222,15 L240,13 L255,22 L270,18 L282,28 L294,24 L302,36 L312,32 L320,46 L314,58 L324,70 L328,84 L336,94 L332,108 L340,120 L336,134 L344,146 L338,158 L330,165 L324,178 L314,186 L310,200 L300,208 L294,222 L284,230 L278,244 L268,252 L262,266 L252,272 L246,286 L236,294 L230,310 L220,318 L212,334 L202,342 L198,358 L188,366 L182,382 L172,390 L166,406 L158,412 L152,428 L144,432 L138,446 L128,448 L120,460 L110,462 L100,470 L90,462 L82,454 L76,442 L70,430 L64,418 L60,406 L66,394 L72,382 L78,370 L74,358 L66,348 L58,338 L52,326 L56,314 L62,302 L68,290 L64,278 L56,268 L50,256 L54,244 L62,234 L68,222 L64,210 L56,200 L50,188 L54,176 L64,166 L72,154 L76,142 L70,130 L62,120 L58,108 L64,96 L74,86 L82,74 L88,62 L96,52 L106,44 L116,38 L128,32 L142,24 L156,18 L170,12 L182,9 Z"
+          fill="rgba(240,235,226,.055)" stroke="rgba(240,235,226,.2)" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M96,150 Q116,170 136,190 Q156,210 165,245" fill="none" stroke="rgba(240,235,226,.05)" stroke-width="1.5"/>
+        <path d="M205,85 Q215,115 205,145 Q195,175 200,210" fill="none" stroke="rgba(240,235,226,.05)" stroke-width="1.5"/>
+      </svg>
+      <!-- Hamburg: 54% left, 17% top -->
+      <div class="mp" id="mp-hh" style="left:54%;top:17%"><div class="mp-line"></div><div class="mp-dot"></div></div>
+      <!-- Dessau/Weimar: 61% left, 42% top -->
+      <div class="mp" id="mp-bh" style="left:61%;top:42%"><div class="mp-line"></div><div class="mp-dot"></div></div>
+      <!-- München: 57% left, 79% top -->
+      <div class="mp" id="mp-mn" style="left:57%;top:79%"><div class="mp-line"></div><div class="mp-dot"></div></div>
+      <!-- Stuttgart: 43% left, 73% top -->
+      <div class="mp" id="mp-st" style="left:43%;top:73%"><div class="mp-line"></div><div class="mp-dot"></div></div>
+      <!-- Berlin: 74% left, 29% top -->
+      <div class="mp" id="mp-be" style="left:74%;top:29%"><div class="mp-line"></div><div class="mp-dot"></div></div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
