@@ -361,16 +361,16 @@ body.fs-mode #prog{opacity:0}
 <div id="deck">
 
 <!-- 01 TITLE -->
-<div class="s s1 active" data-n="Guten Tag! Wir heißen Amelie und Barbora. Heute sprechen wir über moderne Architektur in Deutschland — die interessantesten Gebäude aus verschiedenen Bundesländern.">
+<div class="s s1 active" data-n="Guten Tag! Ich heiße Amelie. Heute spreche ich über moderne Architektur in Deutschland — die interessantesten Gebäude aus verschiedenen Bundesländern.">
   <div class="s1-bg af">
     <img src="https://raw.githubusercontent.com/amelietoupal/Architektur-deutschland/main/image/IMG_9491.jpeg" class="ph" alt="" onerror="this.style.opacity=0">
   </div>
   <div class="s1-grad"></div>
   <div class="s1-content">
-    <div class="s1-kicker a1">Deutsch · Schulreferat · 2026</div>
+    <div class="s1-kicker a1">Deutsch · 2026</div>
     <h1 class="s1-h1 a2">Moderne<br><em>Architektur</em><br>Deutschlands</h1>
     <div class="s1-rule a3"></div>
-    <div class="s1-names a4">Amelie Ťoupalová &amp; Barbora Šímová</div>
+    <div class="s1-names a4">Amelie Ťoupalová</div>
   </div>
   <div class="s1-block a5">
     <div class="s1-block-yr">2026</div>
@@ -622,6 +622,96 @@ body.fs-mode #prog{opacity:0}
 
 </div><!-- /deck -->
 
+<!-- MAP OVERLAY -->
+<div id="map-ov">
+  <div id="map-box">
+    <div id="map-label">Standort auf der Karte</div>
+    <div id="map-city">Hamburg</div>
+    <div id="map-bldg">Elbphilharmonie</div>
+    <div id="map-svg-wrap">
+      <!-- Zjednodušená SVG mapa Německa -->
+      <svg viewBox="0 0 400 480" xmlns="http://www.w3.org/2000/svg">
+        <path d="
+          M182,8 L198,6 L218,14 L238,12 L252,20 L268,16 L280,26 L290,22
+          L298,34 L306,30 L314,44 L308,56 L318,68 L322,82 L330,90 L326,104
+          L336,114 L332,128 L340,138 L334,150 L326,156 L320,170 L310,178
+          L306,192 L296,200 L290,214 L280,220 L274,234 L264,242 L258,256
+          L248,262 L244,276 L234,282 L228,298 L218,306 L210,322 L200,330
+          L196,346 L186,354 L180,370 L170,378 L164,394 L156,400 L150,416
+          L142,420 L138,434 L130,438 L124,450 L116,454 L108,466 L100,470
+          L92,462 L84,454 L78,442 L72,430 L66,418 L62,406 L68,394 L74,382
+          L80,370 L76,358 L68,348 L60,338 L54,326 L58,314 L64,302 L70,290
+          L66,278 L58,268 L52,256 L56,244 L64,234 L70,222 L66,210 L58,200
+          L52,188 L56,176 L66,166 L74,154 L78,142 L72,130 L64,120 L60,108
+          L66,96 L76,86 L84,74 L90,62 L98,52 L108,44 L118,38 L130,32
+          L144,24 L158,18 L170,12 L182,8 Z
+        " fill="rgba(240,235,226,.055)" stroke="rgba(240,235,226,.18)" stroke-width="1.5" stroke-linejoin="round"/>
+        <!-- Rhein/Elbe orientační čáry -->
+        <path d="M90,140 Q110,160 130,180 Q150,200 160,230" fill="none" stroke="rgba(240,235,226,.06)" stroke-width="1"/>
+        <path d="M200,80 Q210,110 200,140 Q190,170 195,200" fill="none" stroke="rgba(240,235,226,.06)" stroke-width="1"/>
+      </svg>
+
+      <!-- PINY – polohy v % šířky/výšky obálky -->
+      <!-- Hamburg: sever, mírně vlevo od středu -->
+      <div class="mp" id="mp-hh" style="left:54%;top:16%">
+        <div class="mp-line"></div>
+        <div class="mp-dot"></div>
+      </div>
+      <!-- Dessau/Weimar: střed Německa -->
+      <div class="mp" id="mp-bh" style="left:60%;top:40%">
+        <div class="mp-line"></div>
+        <div class="mp-dot"></div>
+      </div>
+      <!-- München: jih -->
+      <div class="mp" id="mp-mn" style="left:58%;top:78%">
+        <div class="mp-line"></div>
+        <div class="mp-dot"></div>
+      </div>
+      <!-- Stuttgart: jihozápad -->
+      <div class="mp" id="mp-st" style="left:44%;top:72%">
+        <div class="mp-line"></div>
+        <div class="mp-dot"></div>
+      </div>
+      <!-- Berlin: severovýchod -->
+      <div class="mp" id="mp-be" style="left:72%;top:28%">
+        <div class="mp-line"></div>
+        <div class="mp-dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAP OVERLAY -->
+<div id="map-ov">
+  <div id="map-box">
+    <div id="map-label">Standort · Deutschland</div>
+    <div id="map-city">Hamburg</div>
+    <div id="map-bldg">Elbphilharmonie</div>
+    <div id="map-svg-wrap">
+      <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+        <path d="M190,10 L205,8 L222,15 L240,13 L255,22 L270,18 L282,28 L294,24 L302,36 L312,32 L320,46 L314,58 L324,70 L328,84 L336,94 L332,108 L340,120 L336,134 L344,146 L338,158 L330,165 L324,178 L314,186 L310,200 L300,208 L294,222 L284,230 L278,244 L268,252 L262,266 L252,272 L246,286 L236,294 L230,310 L220,318 L212,334 L202,342 L198,358 L188,366 L182,382 L172,390 L166,406 L158,412 L152,428 L144,432 L138,446 L128,448 L120,460 L110,462 L100,470 L90,462 L82,454 L76,442 L70,430 L64,418 L60,406 L66,394 L72,382 L78,370 L74,358 L66,348 L58,338 L52,326 L56,314 L62,302 L68,290 L64,278 L56,268 L50,256 L54,244 L62,234 L68,222 L64,210 L56,200 L50,188 L54,176 L64,166 L72,154 L76,142 L70,130 L62,120 L58,108 L64,96 L74,86 L82,74 L88,62 L96,52 L106,44 L116,38 L128,32 L142,24 L156,18 L170,12 L182,9 Z"
+          fill="rgba(240,235,226,.055)" stroke="rgba(240,235,226,.2)" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M96,150 Q116,170 136,190 Q156,210 165,245" fill="none" stroke="rgba(240,235,226,.05)" stroke-width="1.5"/>
+        <path d="M205,85 Q215,115 205,145 Q195,175 200,210" fill="none" stroke="rgba(240,235,226,.05)" stroke-width="1.5"/>
+      </svg>
+      <!-- Hamburg: 54% left, 17% top -->
+      <div class="mp" id="mp-hh" style="left:54%;top:17%"><div class="mp-line"></div><div class="mp-dot"></div></div>
+      <!-- Dessau/Weimar: 61% left, 42% top -->
+      <div class="mp" id="mp-bh" style="left:61%;top:42%"><div class="mp-line"></div><div class="mp-dot"></div></div>
+      <!-- München: 57% left, 79% top -->
+      <div class="mp" id="mp-mn" style="left:57%;top:79%"><div class="mp-line"></div><div class="mp-dot"></div></div>
+      <!-- Stuttgart: 43% left, 73% top -->
+      <div class="mp" id="mp-st" style="left:43%;top:73%"><div class="mp-line"></div><div class="mp-dot"></div></div>
+      <!-- Berlin: 74% left, 29% top -->
+      <div class="mp" id="mp-be" style="left:74%;top:29%"><div class="mp-line"></div><div class="mp-dot"></div></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 <script>
 (function(){
 'use strict';
@@ -827,91 +917,5 @@ document.getElementById('prog').style.width=(1/N*100)+'%';
 
 })();
 </script>
-
-<!-- MAP OVERLAY -->
-<div id="map-ov">
-  <div id="map-box">
-    <div id="map-label">Standort auf der Karte</div>
-    <div id="map-city">Hamburg</div>
-    <div id="map-bldg">Elbphilharmonie</div>
-    <div id="map-svg-wrap">
-      <!-- Zjednodušená SVG mapa Německa -->
-      <svg viewBox="0 0 400 480" xmlns="http://www.w3.org/2000/svg">
-        <path d="
-          M182,8 L198,6 L218,14 L238,12 L252,20 L268,16 L280,26 L290,22
-          L298,34 L306,30 L314,44 L308,56 L318,68 L322,82 L330,90 L326,104
-          L336,114 L332,128 L340,138 L334,150 L326,156 L320,170 L310,178
-          L306,192 L296,200 L290,214 L280,220 L274,234 L264,242 L258,256
-          L248,262 L244,276 L234,282 L228,298 L218,306 L210,322 L200,330
-          L196,346 L186,354 L180,370 L170,378 L164,394 L156,400 L150,416
-          L142,420 L138,434 L130,438 L124,450 L116,454 L108,466 L100,470
-          L92,462 L84,454 L78,442 L72,430 L66,418 L62,406 L68,394 L74,382
-          L80,370 L76,358 L68,348 L60,338 L54,326 L58,314 L64,302 L70,290
-          L66,278 L58,268 L52,256 L56,244 L64,234 L70,222 L66,210 L58,200
-          L52,188 L56,176 L66,166 L74,154 L78,142 L72,130 L64,120 L60,108
-          L66,96 L76,86 L84,74 L90,62 L98,52 L108,44 L118,38 L130,32
-          L144,24 L158,18 L170,12 L182,8 Z
-        " fill="rgba(240,235,226,.055)" stroke="rgba(240,235,226,.18)" stroke-width="1.5" stroke-linejoin="round"/>
-        <!-- Rhein/Elbe orientační čáry -->
-        <path d="M90,140 Q110,160 130,180 Q150,200 160,230" fill="none" stroke="rgba(240,235,226,.06)" stroke-width="1"/>
-        <path d="M200,80 Q210,110 200,140 Q190,170 195,200" fill="none" stroke="rgba(240,235,226,.06)" stroke-width="1"/>
-      </svg>
-
-      <!-- PINY – polohy v % šířky/výšky obálky -->
-      <!-- Hamburg: sever, mírně vlevo od středu -->
-      <div class="mp" id="mp-hh" style="left:54%;top:16%">
-        <div class="mp-line"></div>
-        <div class="mp-dot"></div>
-      </div>
-      <!-- Dessau/Weimar: střed Německa -->
-      <div class="mp" id="mp-bh" style="left:60%;top:40%">
-        <div class="mp-line"></div>
-        <div class="mp-dot"></div>
-      </div>
-      <!-- München: jih -->
-      <div class="mp" id="mp-mn" style="left:58%;top:78%">
-        <div class="mp-line"></div>
-        <div class="mp-dot"></div>
-      </div>
-      <!-- Stuttgart: jihozápad -->
-      <div class="mp" id="mp-st" style="left:44%;top:72%">
-        <div class="mp-line"></div>
-        <div class="mp-dot"></div>
-      </div>
-      <!-- Berlin: severovýchod -->
-      <div class="mp" id="mp-be" style="left:72%;top:28%">
-        <div class="mp-line"></div>
-        <div class="mp-dot"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- MAP OVERLAY -->
-<div id="map-ov">
-  <div id="map-box">
-    <div id="map-label">Standort · Deutschland</div>
-    <div id="map-city">Hamburg</div>
-    <div id="map-bldg">Elbphilharmonie</div>
-    <div id="map-svg-wrap">
-      <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
-        <path d="M190,10 L205,8 L222,15 L240,13 L255,22 L270,18 L282,28 L294,24 L302,36 L312,32 L320,46 L314,58 L324,70 L328,84 L336,94 L332,108 L340,120 L336,134 L344,146 L338,158 L330,165 L324,178 L314,186 L310,200 L300,208 L294,222 L284,230 L278,244 L268,252 L262,266 L252,272 L246,286 L236,294 L230,310 L220,318 L212,334 L202,342 L198,358 L188,366 L182,382 L172,390 L166,406 L158,412 L152,428 L144,432 L138,446 L128,448 L120,460 L110,462 L100,470 L90,462 L82,454 L76,442 L70,430 L64,418 L60,406 L66,394 L72,382 L78,370 L74,358 L66,348 L58,338 L52,326 L56,314 L62,302 L68,290 L64,278 L56,268 L50,256 L54,244 L62,234 L68,222 L64,210 L56,200 L50,188 L54,176 L64,166 L72,154 L76,142 L70,130 L62,120 L58,108 L64,96 L74,86 L82,74 L88,62 L96,52 L106,44 L116,38 L128,32 L142,24 L156,18 L170,12 L182,9 Z"
-          fill="rgba(240,235,226,.055)" stroke="rgba(240,235,226,.2)" stroke-width="1.5" stroke-linejoin="round"/>
-        <path d="M96,150 Q116,170 136,190 Q156,210 165,245" fill="none" stroke="rgba(240,235,226,.05)" stroke-width="1.5"/>
-        <path d="M205,85 Q215,115 205,145 Q195,175 200,210" fill="none" stroke="rgba(240,235,226,.05)" stroke-width="1.5"/>
-      </svg>
-      <!-- Hamburg: 54% left, 17% top -->
-      <div class="mp" id="mp-hh" style="left:54%;top:17%"><div class="mp-line"></div><div class="mp-dot"></div></div>
-      <!-- Dessau/Weimar: 61% left, 42% top -->
-      <div class="mp" id="mp-bh" style="left:61%;top:42%"><div class="mp-line"></div><div class="mp-dot"></div></div>
-      <!-- München: 57% left, 79% top -->
-      <div class="mp" id="mp-mn" style="left:57%;top:79%"><div class="mp-line"></div><div class="mp-dot"></div></div>
-      <!-- Stuttgart: 43% left, 73% top -->
-      <div class="mp" id="mp-st" style="left:43%;top:73%"><div class="mp-line"></div><div class="mp-dot"></div></div>
-      <!-- Berlin: 74% left, 29% top -->
-      <div class="mp" id="mp-be" style="left:74%;top:29%"><div class="mp-line"></div><div class="mp-dot"></div></div>
-    </div>
-  </div>
-</div>
 </body>
 </html>
